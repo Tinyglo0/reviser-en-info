@@ -1,0 +1,299 @@
+/* \\wsl.localhost\Debian\home\tinytux\flashcards\Debian\home\tinytux\flashcards\style.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh; /* Très important pour que le footer puisse aller en bas */
+    display: flex;
+    flex-direction: column; /* MODIFIÉ : Organise les enfants (container, footer) verticalement */
+    align-items: center;   /* Centre .container et .footer horizontalement */
+    padding: 20px 0;       /* Garde le padding vertical, horizontal géré par .container ou footer si besoin */
+    /* justify-content: center; /* Supprimé ou changé pour flex-start si vous voulez le contenu en haut */
+}
+
+:root {
+    --bg-gradient: linear-gradient(135deg, #1e3c72, #2a5298);
+    --card-front: linear-gradient(135deg, #667eea, #764ba2);
+    --card-back: linear-gradient(135deg, #f093fb, #f5576c);
+    --btn-primary: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    --btn-secondary: linear-gradient(45deg, #4834d4, #686de0);
+    --btn-success: linear-gradient(45deg, #00d2d3, #54a0ff);
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.theme-selector {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.theme-selector select {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    background: rgba(255,255,255,0.9);
+    color: #333;
+    cursor: pointer;
+    min-width: 200px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: var(--btn-primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+.btn-secondary {
+    background: var(--btn-secondary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(72, 52, 212, 0.4);
+}
+
+.btn-success {
+    background: var(--btn-success);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 210, 211, 0.4);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.card-container {
+    perspective: 1000px;
+    height: 400px;
+    margin-bottom: 30px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card-front {
+    background: var(--card-front);
+    color: white;
+}
+
+.card-back {
+    background: var(--card-back);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card-content {
+    text-align: center;
+    max-width: 100%;
+}
+
+.card-content h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.card-content p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.card-content .formula {
+    background: rgba(255,255,255,0.2);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
+.card-content .highlight {
+    background: rgba(255,255,255,0.3);
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 200px;
+    height: 10px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--btn-success);
+    transition: width 0.3s ease;
+    border-radius: 5px;
+}
+
+.category-filter {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 2px solid rgba(255,255,255,0.3);
+    background: transparent;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(255,255,255,0.6);
+}
+
+.instructions {
+    background: rgba(255,255,255,0.1);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2em;
+    }
+    
+    .card-container {
+        height: 350px;
+    }
+    
+    .card-content h2 {
+        font-size: 1.4em;
+    }
+    
+    .card-content p {
+        font-size: 1em;
+    }
+}
+/* Styles pour la Navbar Années */
+.year-navbar {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+.year-navbar .year-btn {
+    padding: 8px 15px;
+    margin: 0 5px;
+    border: 1px solid rgba(255,255,255,0.5);
+    background-color: transparent;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.year-navbar .year-btn:hover,
+.year-navbar .year-btn.active {
+    background-color: rgba(255,255,255,0.3);
+    border-color: white;
+}
+
+/* Styles pour le Footer */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.9em;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+.footer a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+}
+.footer a:hover {
+    text-decoration: underline;
+}

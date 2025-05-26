@@ -1,0 +1,293 @@
+{
+    "themeConfigurations": {
+        "routage": {
+            "title": "🌐 Flash Cards Routage",
+            "subtitle": "Révisez les concepts essentiels du routage réseau",
+            "icon": "🌐",
+            "yearLevel": "1M",
+            "colors": {
+                "bg": "linear-gradient(135deg, #1e3c72, #2a5298)",
+                "cardFront": "linear-gradient(135deg, #667eea, #764ba2)",
+                "cardBack": "linear-gradient(135deg, #f093fb, #f5576c)"
+            }
+        },
+        "programmation": {
+            "title": "💻 Flash Cards Programmation",
+            "subtitle": "Maîtrisez les concepts de programmation",
+            "icon": "💻",
+            "yearLevel": "1M",
+            "colors": {
+                "bg": "linear-gradient(135deg, #0f4c75, #3282b8)",
+                "cardFront": "linear-gradient(135deg, #4834d4, #686de0)",
+                "cardBack": "linear-gradient(135deg, #00d2d3, #54a0ff)"
+            }
+        },
+        "mathematiques": {
+            "title": "🔢 Flash Cards Mathématiques",
+            "subtitle": "Révisez vos formules et théorèmes",
+            "hidden" : false,
+            "icon": "🔢",
+            "yearLevel": "2M",
+            "bg": "linear-gradient(135deg, #2d1b69, #11998e)",
+            "cardFront": "linear-gradient(135deg, #38ef7d, #11998e)",
+            "cardBack": "linear-gradient(135deg, #fc466b, #3f5efb)"
+        },
+        "physique": {
+            "title": "⚡ Flash Cards Physique",
+            "subtitle": "Explorez les lois de la physique",
+            "icon": "⚡",
+            "yearLevel": "2M",
+            "colors": {
+                "bg": "linear-gradient(135deg, #134e5e, #71b280)",
+                "cardFront": "linear-gradient(135deg, #ff9a9e, #fecfef)",
+                "cardBack": "linear-gradient(135deg, #a8edea, #fed6e3)"
+            }
+        },
+        "anglais": {
+            "title": "🇬🇧 Flash Cards Anglais",
+            "subtitle": "Enrichissez votre vocabulaire",
+            "icon": "🇬🇧",
+            "yearLevel": "troncCommun",
+            "colors": {
+                "bg": "linear-gradient(135deg, #667db6, #0082c8)",
+                "cardFront": "linear-gradient(135deg, #f2709c, #ff9472)",
+                "cardBack": "linear-gradient(135deg, #4facfe, #00f2fe)"
+            }
+        },
+        "logique": {
+            "title": "🔌 Flash Cards Logique booléenne et portes logiques",
+            "subtitle": "Maîtrisez la logique booléenne et les portes logiques",
+            "icon": "🔌",
+            "yearLevel": "1M",
+            "colors": {
+                "bg": "linear-gradient(135deg, #2c3e50, #34495e)",
+                "cardFront": "linear-gradient(135deg, #8e44ad, #9b59b6)",
+                "cardBack": "linear-gradient(135deg, #e74c3c, #f39c12)"
+            }
+        }
+    },
+    "flashcardSets": {
+        "routage": {
+            "categories": [
+                "concepts",
+                "rip",
+                "ospf",
+                "pratique"
+            ],
+            "categoryNames": {
+                "concepts": "Concepts",
+                "rip": "RIP",
+                "ospf": "OSPF",
+                "pratique": "Pratique"
+            },
+            "cards": [
+                {
+                    "category": "concepts",
+                    "front": "Configuration IP",
+                    "question": "Quels sont les deux éléments essentiels pour configurer un nœud dans un réseau ?",
+                    "back": "1. <span class='highlight'>Une adresse IP</span> : pour identifier de manière unique la machine sur le réseau<br><br>2. <span class='highlight'>Un masque de sous-réseau</span> : pour définir quelle partie de l'adresse IP appartient au réseau et quelle partie identifie la machine"
+                },
+                {
+                    "category": "rip",
+                    "front": "Protocole RIP",
+                    "question": "Qu'est-ce que le protocole RIP et quelles sont ses caractéristiques ?",
+                    "back": "<span class='highlight'>RIP (Routing Information Protocol)</span><br><br>• Protocole à <span class='highlight'>vecteur de distance</span><br>• Utilise l'algorithme de <span class='highlight'>Bellman-Ford</span><br>• Métrique : <span class='highlight'>nombre de sauts (hops)</span><br>• Mise à jour toutes les <span class='highlight'>30 secondes</span><br>• Idéal pour les <span class='highlight'>petits réseaux</span>"
+                }
+            ]
+        },
+        "programmation": {
+            "categories": [
+                "bases",
+                "structures",
+                "algorithmes",
+                "poo"
+            ],
+            "categoryNames": {
+                "bases": "Bases",
+                "structures": "Structures",
+                "algorithmes": "Algorithmes",
+                "poo": "POO"
+            },
+            "cards": [
+                {
+                    "category": "bases",
+                    "front": "Variables",
+                    "question": "Qu'est-ce qu'une variable en programmation ?",
+                    "back": "Une <span class='highlight'>variable</span> est un espace de stockage nommé qui contient une valeur.<br><br>• Elle a un <span class='highlight'>nom</span> (identificateur)<br>• Elle a un <span class='highlight'>type</span> (entier, chaîne, etc.)<br>• Elle peut être <span class='highlight'>modifiée</span> pendant l'exécution"
+                },
+                {
+                    "category": "structures",
+                    "front": "Boucles",
+                    "question": "Quels sont les trois types de boucles principales ?",
+                    "back": "<span class='highlight'>1. Boucle for :</span> nombre d'itérations connu<br><br><span class='highlight'>2. Boucle while :</span> condition en début<br><br><span class='highlight'>3. Boucle do-while :</span> condition en fin (au moins 1 exécution)"
+                }
+            ]
+        },
+        "mathematiques": {
+            "categories": [
+                "algebre",
+                "geometrie",
+                "analyse",
+                "statistiques"
+            ],
+            "categoryNames": {
+                "algebre": "Algèbre",
+                "geometrie": "Géométrie",
+                "analyse": "Analyse",
+                "statistiques": "Statistiques"
+            },
+            "cards": [
+                {
+                    "category": "algebre",
+                    "front": "Équation du second degré",
+                    "question": "Quelle est la formule pour résoudre ax² + bx + c = 0 ?",
+                    "back": "<div class='formula'>x = (-b ± √(b² - 4ac)) / (2a)</div><br>Le <span class='highlight'>discriminant</span> Δ = b² - 4ac détermine le nombre de solutions :<br>• Δ > 0 : <span class='highlight'>2 solutions</span><br>• Δ = 0 : <span class='highlight'>1 solution</span><br>• Δ < 0 : <span class='highlight'>aucune solution réelle</span>"
+                },
+                {
+                    "category": "geometrie",
+                    "front": "Théorème de Pythagore",
+                    "question": "Énoncez le théorème de Pythagore",
+                    "back": "Dans un triangle rectangle :<br><br><div class='formula'>a² + b² = c²</div><br>où <span class='highlight'>c</span> est l'hypoténuse et <span class='highlight'>a, b</span> sont les deux autres côtés."
+                }
+            ]
+        },
+        "physique": {
+            "categories": [
+                "mecanique",
+                "thermodynamique",
+                "electricite",
+                "optique"
+            ],
+            "categoryNames": {
+                "mecanique": "Mécanique",
+                "thermodynamique": "Thermodynamique",
+                "electricite": "Électricité",
+                "optique": "Optique"
+            },
+            "cards": [
+                {
+                    "category": "mecanique",
+                    "front": "Lois de Newton",
+                    "question": "Énoncez la deuxième loi de Newton",
+                    "back": "<div class='formula'>F = ma</div><br>La <span class='highlight'>force</span> appliquée à un objet est égale à sa <span class='highlight'>masse</span> multipliée par son <span class='highlight'>accélération</span>.<br><br>Unités : F en Newtons (N), m en kg, a en m/s²"
+                },
+                {
+                    "category": "electricite",
+                    "front": "Loi d'Ohm",
+                    "question": "Quelle est la loi d'Ohm ?",
+                    "back": "<div class='formula'>U = R × I</div><br>• <span class='highlight'>U</span> : tension en Volts (V)<br>• <span class='highlight'>R</span> : résistance en Ohms (Ω)<br>• <span class='highlight'>I</span> : intensité en Ampères (A)"
+                }
+            ]
+        },
+        "anglais": {
+            "categories": [
+                "vocabulaire",
+                "grammaire",
+                "conjugaison",
+                "expressions"
+            ],
+            "categoryNames": {
+                "vocabulaire": "Vocabulaire",
+                "grammaire": "Grammaire",
+                "conjugaison": "Conjugaison",
+                "expressions": "Expressions"
+            },
+            "cards": [
+                {
+                    "category": "vocabulaire",
+                    "front": "Emotions",
+                    "question": "Comment dit-on ces émotions en anglais : Heureux, Triste, En colère, Effrayé ?",
+                    "back": "• <span class='highlight'>Heureux</span> = Happy<br>• <span class='highlight'>Triste</span> = Sad<br>• <span class='highlight'>En colère</span> = Angry<br>• <span class='highlight'>Effrayé</span> = Scared"
+                },
+                {
+                    "category": "grammaire",
+                    "front": "Present Perfect",
+                    "question": "Comment forme-t-on le Present Perfect ?",
+                    "back": "<div class='formula'>Subject + have/has + Past Participle</div><br><span class='highlight'>Utilisation :</span><br>• Action passée avec résultat présent<br>• Expérience de vie<br>• Action commencée dans le passé et qui continue"
+                }
+            ]
+        },
+        "logique": {
+            "categories": [
+                "concepts",
+                "operateurs",
+                "portes",
+                "expressions"
+            ],
+            "categoryNames": {
+                "concepts": "Concepts",
+                "operateurs": "Opérateurs",
+                "portes": "Portes logiques",
+                "expressions": "Expressions"
+            },
+            "cards": [
+                {
+                    "category": "concepts",
+                    "front": "Variable booléenne",
+                    "question": "Qu'est-ce qu'une variable booléenne ?",
+                    "back": "Une <span class='highlight'>variable booléenne</span> est une variable qui ne peut avoir que <span class='highlight'>deux états possibles</span>.<br><br>• Ces états sont généralement <span class='highlight'>Vrai et Faux</span><br>• Peut représenter n'importe quelle paire de valeurs<br>• Peut être stockée sous forme d'un <span class='highlight'>seul bit</span>"
+                },
+                {
+                    "category": "concepts",
+                    "front": "Énoncé logique",
+                    "question": "Qu'est-ce qu'un énoncé logique ?",
+                    "back": "Un <span class='highlight'>énoncé logique</span> est une déclaration qui s'évalue soit à <span class='highlight'>Vrai</span>, soit à <span class='highlight'>Faux</span>.<br><br>Exemple : « Il pleut » est un énoncé logique car on peut vérifier si cet énoncé est Vrai ou Faux."
+                },
+                {
+                    "category": "operateurs",
+                    "front": "Opération ET (AND)",
+                    "question": "Comment fonctionne l'opération ET (AND) ?",
+                    "back": "L'opération <span class='highlight'>ET</span> combine deux énoncés logiques et renvoie <span class='highlight'>Vrai uniquement si les deux énoncés sont Vrais</span>.<br><br>• Symbole : <span class='highlight'>∧</span><br>• A ET B s'écrit : <span class='highlight'>A ∧ B</span><br>• Exemple : « Il fait soleil ET il fait chaud »"
+                },
+                {
+                    "category": "operateurs",
+                    "front": "Opération OU (OR)",
+                    "question": "Comment fonctionne l'opération OU (OR) ?",
+                    "back": "L'opération <span class='highlight'>OU</span> combine deux énoncés logiques et renvoie <span class='highlight'>Vrai si au moins un des énoncés est Vrai</span>.<br><br>• Symbole : <span class='highlight'>∨</span><br>• A OU B s'écrit : <span class='highlight'>A ∨ B</span><br>• Exemple : « Il fait soleil OU il fait chaud »"
+                },
+                {
+                    "category": "operateurs",
+                    "front": "Opération NON (NOT)",
+                    "question": "Comment fonctionne l'opération NON (NOT) ?",
+                    "back": "L'opération <span class='highlight'>NON</span> inverse la valeur d'un énoncé logique.<br><br>• Si l'énoncé est Vrai, NON renvoie <span class='highlight'>Faux</span><br>• Si l'énoncé est Faux, NON renvoie <span class='highlight'>Vrai</span><br>• Symbole : <span class='highlight'>¬</span><br>• NON A s'écrit : <span class='highlight'>¬A</span>"
+                },
+                {
+                    "category": "expressions",
+                    "front": "Ordre de priorité",
+                    "question": "Quel est l'ordre de priorité des opérateurs booléens ?",
+                    "back": "Ordre de priorité (du plus élevé au plus bas) :<br><br>1. <span class='highlight'>NON</span> (priorité la plus élevée)<br>2. <span class='highlight'>ET</span><br>3. <span class='highlight'>OU</span> (priorité la plus basse)<br><br>Les <span class='highlight'>parenthèses</span> peuvent modifier l'ordre de priorité par défaut."
+                },
+                {
+                    "category": "portes",
+                    "front": "Porte logique",
+                    "question": "Qu'est-ce qu'une porte logique ?",
+                    "back": "Une <span class='highlight'>porte logique</span> est un composant fondamental d'un circuit numérique.<br><br>• Possède <span class='highlight'>une ou plusieurs entrées</span><br>• Produit <span class='highlight'>une seule sortie</span> qui dépend des entrées<br>• Entrées/sorties : valeurs binaires <span class='highlight'>0 et 1</span><br>• 1 (Vrai) = tension élevée, 0 (Faux) = tension basse"
+                },
+                {
+                    "category": "portes",
+                    "front": "Porte XOR",
+                    "question": "Comment fonctionne la porte XOR (OU exclusif) ?",
+                    "back": "La porte <span class='highlight'>XOR</span> (eXclusive OR) produit une sortie de <span class='highlight'>1 si une seule des entrées est 1</span>, mais pas les deux.<br><br>• Expression : <span class='highlight'>Q = A ⊕ B</span><br>• Table de vérité :<br>&nbsp;&nbsp;0⊕0 = 0<br>&nbsp;&nbsp;0⊕1 = 1<br>&nbsp;&nbsp;1⊕0 = 1<br>&nbsp;&nbsp;1⊕1 = 0"
+                },
+                {
+                    "category": "portes",
+                    "front": "Porte NAND",
+                    "question": "Comment fonctionne la porte NAND (NON-ET) ?",
+                    "back": "La porte <span class='highlight'>NAND</span> combine la logique d'une porte AND et d'une porte NOT. Elle produit <span class='highlight'>l'inverse de la sortie d'une porte AND</span>.<br><br>• Expression : <span class='highlight'>Q = A ∧ B</span> (A ET B barré)<br>• Sortie = 0 seulement quand A=1 ET B=1<br>• Sinon sortie = 1"
+                },
+                {
+                    "category": "portes",
+                    "front": "Porte NOR",
+                    "question": "Comment fonctionne la porte NOR (NON-OU) ?",
+                    "back": "La porte <span class='highlight'>NOR</span> combine la logique d'une porte OR et d'une porte NOT. Elle produit <span class='highlight'>l'inverse de la sortie d'une porte OR</span>.<br><br>• Expression : <span class='highlight'>Q = A ∨ B</span> (A OU B barré)<br>• Sortie = 1 seulement quand A=0 ET B=0<br>• Sinon sortie = 0"
+                },
+                {
+                    "category": "portes",
+                    "front": "Portes à entrées multiples",
+                    "question": "Comment fonctionnent les portes logiques à entrées multiples ?",
+                    "back": "Les portes logiques peuvent accepter <span class='highlight'>plus de deux entrées</span>.<br><br>Exemples d'expressions :<br>• AND 3 entrées : <span class='highlight'>Q = A ∧ B ∧ C</span><br>• OR 3 entrées : <span class='highlight'>Q = A ∨ B ∨ C</span><br>• XOR 3 entrées : <span class='highlight'>Q = A ⊕ B ⊕ C</span><br><br>Une seule porte implémente la logique de plusieurs portes en série."
+                }
+            ]
+        }
+    }
+}

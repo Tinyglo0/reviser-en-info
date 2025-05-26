@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Cards en informatique</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div class="container">
+        <div class="header">
+            <h1 id="mainTitle">🎓 Flash Cards Personnalisables</h1>
+            <p id="mainSubtitle">Sélectionnez une année puis un thème</p>
+        </div>
+
+        <div class="year-navbar" id="yearNavbar">
+            </div>
+
+        <div class="theme-selector">
+            <select id="themeSelector">
+                <option value="">-- D'abord choisir une année --</option>
+            </select>
+        </div>
+
+        <div class="instructions" id="instructions">
+            <p><strong>Instructions :</strong> Choisissez une année et un thème pour commencer. Cliquez sur les cartes pour les retourner, utilisez les boutons ou les raccourcis (Espace pour retourner, → pour suivante).</p>
+        </div>
+
+        <div class="category-filter" id="categoryFilter" style="display: none;">
+        </div>
+
+        <div class="progress" id="progressSection" style="display: none;">
+            <span>Progression:</span>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span id="progressText">0/0</span>
+        </div>
+
+        <div class="card-container">
+            <div class="card" id="flashCard">
+                <div class="card-face card-front">
+                    <div class="card-content" id="cardFront">
+                        <!-- <h2>Bienvenue !</h2>
+                        <p>Sélectionnez une année puis un thème pour commencer.</p> -->
+                    </div>
+                </div>
+                <div class="card-face card-back">
+                    <div class="card-content" id="cardBack">
+                        <!-- <h2>C'est parti !</h2>
+                        <p>Bonne révisions ! 📚</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls" id="controlButtons" style="display: none;">
+            <button class="btn btn-primary" id="newCard">Nouvelle Carte</button>
+            <button class="btn btn-secondary" id="flipCard">Retourner</button>
+            <button class="btn btn-success" id="shuffleCards">Mélanger</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2025 Réviser en info - Tous droits réservés </p>
+        <p>Développé avec ❤️ par Aurélien</p>
+    </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
