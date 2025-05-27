@@ -51,16 +51,70 @@
             },
             "cards": [
                 {
-                    "category": "concepts",
-                    "front": "Configuration IP",
-                    "question": "Quels sont les deux éléments essentiels pour configurer un nœud dans un réseau ?",
-                    "back": "1. <span class='highlight'>Une adresse IP</span> : pour identifier de manière unique la machine sur le réseau<br><br>2. <span class='highlight'>Un masque de sous-réseau</span> : pour définir quelle partie de l'adresse IP appartient au réseau et quelle partie identifie la machine"
+                "category": "concepts",
+                "front": "Configuration IP",
+                "question": "Quels sont les deux éléments essentiels pour configurer un nœud dans un réseau ?",
+                "back": "1. <span class='highlight'>Une adresse IP</span> : pour identifier de manière unique la machine sur le réseau<br><br>2. <span class='highlight'>Un masque de sous-réseau</span> : pour définir quelle partie de l'adresse IP appartient au réseau et quelle partie identifie la machine"
                 },
                 {
-                    "category": "rip",
-                    "front": "Protocole RIP",
-                    "question": "Qu'est-ce que le protocole RIP et quelles sont ses caractéristiques ?",
-                    "back": "<span class='highlight'>RIP (Routing Information Protocol)</span><br><br>• Protocole à <span class='highlight'>vecteur de distance</span><br>• Utilise l'algorithme de <span class='highlight'>Bellman-Ford</span><br>• Métrique : <span class='highlight'>nombre de sauts (hops)</span><br>• Mise à jour toutes les <span class='highlight'>30 secondes</span><br>• Idéal pour les <span class='highlight'>petits réseaux</span>"
+                "category": "concepts",
+                "front": "Le Routage",
+                "question": "Quel est le rôle du routage et comment fonctionne-t-il ?",
+                "back": "Le routage permet de déterminer le chemin qu'un paquet doit emprunter pour atteindre sa destination.<br><br><span class='highlight'>Processus :</span><br>1. Le routeur examine l'adresse IP du destinataire<br>2. Si elle n'appartient pas au même réseau, il consulte sa table de routage<br>3. Il détermine le routeur suivant sur la route vers la destination"
+                },
+                {
+                "category": "concepts",
+                "front": "Types de Routage",
+                "question": "Quelles sont les différences entre le routage statique et dynamique ?",
+                "back": "<span class='highlight'>Routage Statique :</span><br>• Configuration manuelle<br>• Fastidieux pour les réseaux complexes<br>• Pas d'adaptation automatique aux pannes<br><br><span class='highlight'>Routage Dynamique :</span><br>• Configuration automatique par les routeurs<br>• Adaptation aux changements du réseau<br>• Utilise des protocoles de routage"
+                },
+                {
+                "category": "rip",
+                "front": "Protocole RIP",
+                "question": "Qu'est-ce que le protocole RIP et quelles sont ses caractéristiques ?",
+                "back": "<span class='highlight'>RIP (Routing Information Protocol)</span><br><br>• Protocole à <span class='highlight'>vecteur de distance</span><br>• Métrique : <span class='highlight'>nombre de sauts (hops)</span><br>• Mise à jour toutes les <span class='highlight'>30 secondes</span><br>• Idéal pour les <span class='highlight'>petits réseaux</span>"
+                },
+                {
+                "category": "rip",
+                "front": "Fonctionnement RIP",
+                "question": "Comment les routeurs RIP construisent-ils leur table de routage ?",
+                "back": "1. <span class='highlight'>Initialisation :</span> Table contient uniquement les réseaux directement connectés (métrique 0)<br><br>2. <span class='highlight'>Échanges périodiques :</span> Chaque routeur envoie sa table à ses voisins toutes les 30s<br><br>3. <span class='highlight'>Mise à jour :</span> Ajout des nouveaux réseaux avec métrique +1"
+                },
+                {
+                "category": "rip",
+                "front": "Métrique RIP",
+                "question": "Comment fonctionne la métrique dans le protocole RIP ?",
+                "back": "La métrique RIP = <span class='highlight'>nombre de sauts</span><br><br>• Réseaux directement connectés : métrique <span class='highlight'>0</span><br>• Réseaux accessibles via 1 routeur : métrique <span class='highlight'>1</span><br>• Réseaux accessibles via 2 routeurs : métrique <span class='highlight'>2</span><br>• Etc.<br><br>RIP choisit le chemin avec le <span class='highlight'>moins de sauts</span>"
+                },
+                {
+                "category": "ospf",
+                "front": "Protocole OSPF",
+                "question": "Qu'est-ce que le protocole OSPF et en quoi diffère-t-il de RIP ?",
+                "back": "<span class='highlight'>OSPF (Open Shortest Path First)</span><br><br>• Protocole à <span class='highlight'>état de liens</span><br>• Métrique basée sur la <span class='highlight'>bande passante</span><br>• Cartographie complète du réseau<br>• Plus efficace que RIP pour les grands réseaux"
+                },
+                {
+                "category": "pratique",
+                "front": "Table de Routage",
+                "question": "Quelles informations contient une table de routage ?",
+                "back": "Une table de routage contient :<br><br>• <span class='highlight'>Réseau de destination</span> : réseau à atteindre<br>• <span class='highlight'>Passerelle</span> : adresse IP du routeur suivant<br>• <span class='highlight'>Interface de sortie</span> : interface réseau à utiliser<br>• <span class='highlight'>Métrique</span> : coût ou distance vers la destination"
+                },
+                {
+                "category": "pratique",
+                "front": "Analyse de Panne",
+                "question": "Que se passe-t-il quand une liaison tombe en panne ?",
+                "back": "<span class='highlight'>Routage Statique :</span><br>• Reconfiguration manuelle nécessaire<br>• Surveillance permanente requise<br><br><span class='highlight'>Routage Dynamique :</span><br>• Détection automatique de la panne<br>• Recalcul automatique des routes<br>• Utilisation de chemins alternatifs"
+                },
+                {
+                "category": "pratique",
+                "front": "Choix du Protocole",
+                "question": "Dans quels cas utiliser RIP vs OSPF ?",
+                "back": "<span class='highlight'>Utiliser RIP :</span><br>• Petits réseaux simples<br>• Configuration facile<br>• Tous les liens ont des débits similaires<br><br><span class='highlight'>Utiliser OSPF :</span><br>• Réseaux complexes<br>• Liens de débits différents<br>• Besoin d'optimisation des performances"
+                },
+                {
+                "category": "pratique",
+                "front": "Dépannage Réseau",
+                "question": "Comment identifier le chemin d'un paquet dans un réseau ?",
+                "back": "1. <span class='highlight'>Examiner la table de routage</span> du routeur source<br>2. <span class='highlight'>Suivre la passerelle</span> indiquée pour le réseau destination<br>3. <span class='highlight'>Répéter l'opération</span> pour chaque routeur traversé<br>4. <span class='highlight'>Vérifier les métriques</span> pour comprendre les choix de routage"
                 }
             ]
         },
