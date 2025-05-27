@@ -4,7 +4,7 @@
             "title": "🌐 Flash Cards Routage",
             "subtitle": "Révisez les concepts essentiels du routage réseau",
             "icon": "🌐",
-            "yearLevel": "1M",
+            "yearLevel": "2M",
             "colors": {
                 "bg": "linear-gradient(135deg, #1e3c72, #2a5298)",
                 "cardFront": "linear-gradient(135deg, #667eea, #764ba2)",
@@ -14,44 +14,13 @@
         "programmation": {
             "title": "💻 Flash Cards Programmation",
             "subtitle": "Maîtrisez les concepts de programmation",
+            "hidden": false,
             "icon": "💻",
             "yearLevel": "1M",
             "colors": {
                 "bg": "linear-gradient(135deg, #0f4c75, #3282b8)",
                 "cardFront": "linear-gradient(135deg, #4834d4, #686de0)",
                 "cardBack": "linear-gradient(135deg, #00d2d3, #54a0ff)"
-            }
-        },
-        "mathematiques": {
-            "title": "🔢 Flash Cards Mathématiques",
-            "subtitle": "Révisez vos formules et théorèmes",
-            "hidden" : false,
-            "icon": "🔢",
-            "yearLevel": "2M",
-            "bg": "linear-gradient(135deg, #2d1b69, #11998e)",
-            "cardFront": "linear-gradient(135deg, #38ef7d, #11998e)",
-            "cardBack": "linear-gradient(135deg, #fc466b, #3f5efb)"
-        },
-        "physique": {
-            "title": "⚡ Flash Cards Physique",
-            "subtitle": "Explorez les lois de la physique",
-            "icon": "⚡",
-            "yearLevel": "2M",
-            "colors": {
-                "bg": "linear-gradient(135deg, #134e5e, #71b280)",
-                "cardFront": "linear-gradient(135deg, #ff9a9e, #fecfef)",
-                "cardBack": "linear-gradient(135deg, #a8edea, #fed6e3)"
-            }
-        },
-        "anglais": {
-            "title": "🇬🇧 Flash Cards Anglais",
-            "subtitle": "Enrichissez votre vocabulaire",
-            "icon": "🇬🇧",
-            "yearLevel": "troncCommun",
-            "colors": {
-                "bg": "linear-gradient(135deg, #667db6, #0082c8)",
-                "cardFront": "linear-gradient(135deg, #f2709c, #ff9472)",
-                "cardBack": "linear-gradient(135deg, #4facfe, #00f2fe)"
             }
         },
         "logique": {
@@ -97,113 +66,69 @@
         },
         "programmation": {
             "categories": [
-                "bases",
+                "boucles",
                 "structures",
-                "algorithmes",
-                "poo"
+                "bases"
             ],
             "categoryNames": {
-                "bases": "Bases",
-                "structures": "Structures",
-                "algorithmes": "Algorithmes",
-                "poo": "POO"
+                "boucles": "Boucles",
+                "structures": "Structures conditionnelles",
+                "bases": "Bases"
             },
             "cards": [
                 {
-                    "category": "bases",
-                    "front": "Variables",
-                    "question": "Qu'est-ce qu'une variable en programmation ?",
-                    "back": "Une <span class='highlight'>variable</span> est un espace de stockage nommé qui contient une valeur.<br><br>• Elle a un <span class='highlight'>nom</span> (identificateur)<br>• Elle a un <span class='highlight'>type</span> (entier, chaîne, etc.)<br>• Elle peut être <span class='highlight'>modifiée</span> pendant l'exécution"
+                    "category": "boucles",
+                    "front": "Boucle for (bornée)",
+                    "question": "Qu'est-ce qu'une boucle for et comment l'utiliser ?",
+                    "back": "Une <span class='highlight'>boucle for</span> (boucle bornée) répète une séquence d'instructions un <span class='highlight'>nombre de fois défini</span>.<br><br>• Syntaxe : <span class='highlight'>for i in range(n):</span><br>• La variable <span class='highlight'>i</span> prend une valeur différente à chaque itération<br>• <span class='highlight'>range(n)</span> génère les valeurs de 0 à n-1<br>• Exemple : <code>for i in range(5): print(i)</code> affiche 0, 1, 2, 3, 4"
+                },
+                {
+                    "category": "boucles",
+                    "front": "Fonction range()",
+                    "question": "Comment utiliser la fonction range() avec ses paramètres ?",
+                    "back": "La fonction <span class='highlight'>range()</span> génère une séquence de nombres avec 1 à 3 paramètres :<br><br>• <span class='highlight'>start</span> : premier élément (par défaut 0)<br>• <span class='highlight'>stop</span> : limite supérieure (exclue)<br>• <span class='highlight'>step</span> : pas d'incrémentation (par défaut 1)<br><br>Exemples :<br>• <code>range(5)</code> → 0, 1, 2, 3, 4<br>• <code>range(2, 8)</code> → 2, 3, 4, 5, 6, 7<br>• <code>range(0, 10, 2)</code> → 0, 2, 4, 6, 8"
+                },
+                {
+                    "category": "boucles",
+                    "front": "Boucle while (non bornée)",
+                    "question": "Qu'est-ce qu'une boucle while et quelles sont ses règles ?",
+                    "back": "Une <span class='highlight'>boucle while</span> (non bornée) répète une tâche <span class='highlight'>tant qu'une condition est vérifiée</span>.<br><br><span class='highlight'>Règles essentielles :</span><br>• <span class='highlight'>Initialiser</span> la variable de contrôle avant la boucle<br>• <span class='highlight'>Modifier</span> cette variable dans la boucle<br>• Syntaxe : <code>while condition:</code><br><br>⚠️ Sans ces règles, risque de <span class='highlight'>boucle infinie</span> !"
                 },
                 {
                     "category": "structures",
-                    "front": "Boucles",
-                    "question": "Quels sont les trois types de boucles principales ?",
-                    "back": "<span class='highlight'>1. Boucle for :</span> nombre d'itérations connu<br><br><span class='highlight'>2. Boucle while :</span> condition en début<br><br><span class='highlight'>3. Boucle do-while :</span> condition en fin (au moins 1 exécution)"
-                }
-            ]
-        },
-        "mathematiques": {
-            "categories": [
-                "algebre",
-                "geometrie",
-                "analyse",
-                "statistiques"
-            ],
-            "categoryNames": {
-                "algebre": "Algèbre",
-                "geometrie": "Géométrie",
-                "analyse": "Analyse",
-                "statistiques": "Statistiques"
-            },
-            "cards": [
-                {
-                    "category": "algebre",
-                    "front": "Équation du second degré",
-                    "question": "Quelle est la formule pour résoudre ax² + bx + c = 0 ?",
-                    "back": "<div class='formula'>x = (-b ± √(b² - 4ac)) / (2a)</div><br>Le <span class='highlight'>discriminant</span> Δ = b² - 4ac détermine le nombre de solutions :<br>• Δ > 0 : <span class='highlight'>2 solutions</span><br>• Δ = 0 : <span class='highlight'>1 solution</span><br>• Δ < 0 : <span class='highlight'>aucune solution réelle</span>"
+                    "front": "Instructions conditionnelles",
+                    "question": "Comment fonctionnent les instructions conditionnelles if/else ?",
+                    "back": "Les <span class='highlight'>instructions conditionnelles</span> exécutent du code selon une condition :<br><br>• <span class='highlight'>if condition:</span> - exécute si condition vraie<br>• <span class='highlight'>else:</span> - exécute si condition fausse<br>• <span class='highlight'>elif condition:</span> - pour conditions multiples<br><br>Une condition est un <span class='highlight'>booléen</span> (True/False)"
                 },
                 {
-                    "category": "geometrie",
-                    "front": "Théorème de Pythagore",
-                    "question": "Énoncez le théorème de Pythagore",
-                    "back": "Dans un triangle rectangle :<br><br><div class='formula'>a² + b² = c²</div><br>où <span class='highlight'>c</span> est l'hypoténuse et <span class='highlight'>a, b</span> sont les deux autres côtés."
-                }
-            ]
-        },
-        "physique": {
-            "categories": [
-                "mecanique",
-                "thermodynamique",
-                "electricite",
-                "optique"
-            ],
-            "categoryNames": {
-                "mecanique": "Mécanique",
-                "thermodynamique": "Thermodynamique",
-                "electricite": "Électricité",
-                "optique": "Optique"
-            },
-            "cards": [
-                {
-                    "category": "mecanique",
-                    "front": "Lois de Newton",
-                    "question": "Énoncez la deuxième loi de Newton",
-                    "back": "<div class='formula'>F = ma</div><br>La <span class='highlight'>force</span> appliquée à un objet est égale à sa <span class='highlight'>masse</span> multipliée par son <span class='highlight'>accélération</span>.<br><br>Unités : F en Newtons (N), m en kg, a en m/s²"
+                    "category": "bases",
+                    "front": "Opérateurs de comparaison",
+                    "question": "Quels sont les opérateurs de comparaison en Python ?",
+                    "back": "Les <span class='highlight'>opérateurs de comparaison</span> :<br><br>• <span class='highlight'>==</span> : est égal à<br>• <span class='highlight'>></span> : plus grand que<br>• <span class='highlight'><</span> : plus petit que<br>• <span class='highlight'>>=</span> : plus grand ou égal<br>• <span class='highlight'><=</span> : plus petit ou égal<br>• <span class='highlight'>!=</span> : est différent de<br><br>⚠️ <span class='highlight'>=</span> (affectation) ≠ <span class='highlight'>==</span> (comparaison)"
                 },
                 {
-                    "category": "electricite",
-                    "front": "Loi d'Ohm",
-                    "question": "Quelle est la loi d'Ohm ?",
-                    "back": "<div class='formula'>U = R × I</div><br>• <span class='highlight'>U</span> : tension en Volts (V)<br>• <span class='highlight'>R</span> : résistance en Ohms (Ω)<br>• <span class='highlight'>I</span> : intensité en Ampères (A)"
-                }
-            ]
-        },
-        "anglais": {
-            "categories": [
-                "vocabulaire",
-                "grammaire",
-                "conjugaison",
-                "expressions"
-            ],
-            "categoryNames": {
-                "vocabulaire": "Vocabulaire",
-                "grammaire": "Grammaire",
-                "conjugaison": "Conjugaison",
-                "expressions": "Expressions"
-            },
-            "cards": [
-                {
-                    "category": "vocabulaire",
-                    "front": "Emotions",
-                    "question": "Comment dit-on ces émotions en anglais : Heureux, Triste, En colère, Effrayé ?",
-                    "back": "• <span class='highlight'>Heureux</span> = Happy<br>• <span class='highlight'>Triste</span> = Sad<br>• <span class='highlight'>En colère</span> = Angry<br>• <span class='highlight'>Effrayé</span> = Scared"
+                    "category": "bases",
+                    "front": "Opérateurs logiques",
+                    "question": "Quels sont les opérateurs logiques et comment les utiliser ?",
+                    "back": "Les <span class='highlight'>opérateurs logiques</span> combinent des conditions :<br><br>• <span class='highlight'>and</span> : les deux conditions doivent être vraies<br>• <span class='highlight'>or</span> : au moins une condition doit être vraie<br>• <span class='highlight'>not</span> : inverse la condition<br><br>Exemple : <code>if x > 0 and x < 10:</code><br>Priorité : <span class='highlight'>not</span> > <span class='highlight'>and</span> > <span class='highlight'>or</span>"
                 },
                 {
-                    "category": "grammaire",
-                    "front": "Present Perfect",
-                    "question": "Comment forme-t-on le Present Perfect ?",
-                    "back": "<div class='formula'>Subject + have/has + Past Participle</div><br><span class='highlight'>Utilisation :</span><br>• Action passée avec résultat présent<br>• Expérience de vie<br>• Action commencée dans le passé et qui continue"
+                    "category": "structures",
+                    "front": "Différence for/while",
+                    "question": "Quand utiliser for ou while ?",
+                    "back": "<span class='highlight'>Boucle for :</span><br>• Nombre d'itérations <span class='highlight'>connu à l'avance</span><br>• Parcourir une séquence définie<br>• Plus simple et sûre<br><br><span class='highlight'>Boucle while :</span><br>• Nombre d'itérations <span class='highlight'>inconnu</span><br>• Condition d'arrêt complexe<br>• Attendre un événement<br>• Risque de boucle infinie si mal écrite"
+                },
+                {
+                    "category": "structures",
+                    "front": "Structure elif",
+                    "question": "Comment utiliser elif pour les conditions multiples ?",
+                    "back": "<span class='highlight'>elif</span> permet d'ajouter des conditions supplémentaires :<br><br><code>if condition1:<br>&nbsp;&nbsp;# code 1<br>elif condition2:<br>&nbsp;&nbsp;# code 2<br>else:<br>&nbsp;&nbsp;# code par défaut</code><br><br>• Évaluation <span class='highlight'>séquentielle</span><br>• Dès qu'une condition est vraie, les autres ne sont pas testées<br>• Plus efficace que plusieurs if séparés"
+                },
+                {
+                    "category": "bases",
+                    "front": "Variables de contrôle",
+                    "question": "Qu'est-ce qu'une variable de contrôle dans une boucle ?",
+                    "back": "Une <span class='highlight'>variable de contrôle</span> détermine le comportement d'une boucle :<br><br><span class='highlight'>Dans for :</span><br>• Variable automatique (ex: <code>i</code> dans <code>for i in range()</code>)<br>• Valeur gérée par Python<br><br><span class='highlight'>Dans while :</span><br>• Variable à <span class='highlight'>initialiser</span> avant la boucle<br>• Variable à <span class='highlight'>modifier</span> dans la boucle<br>• Contrôle la condition d'arrêt"
                 }
             ]
         },

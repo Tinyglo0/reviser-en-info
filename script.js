@@ -208,7 +208,7 @@ async function loadTheme(themeName) {
         hideInterface(); // S'occupe de réinitialiser les messages
         currentTheme = null;
          if(currentSelectedYear){ // Si une année est sélectionnée, adapter le message du sous-titre
-            elements.mainSubtitle.textContent = `Choisissez un thème pour l'${getYearDisplayName(currentSelectedYear)}`;
+            elements.mainSubtitle.textContent = `Choisissez un thème pour le niveau suivant : ${getYearDisplayName(currentSelectedYear)}`;
             elements.cardFront.innerHTML = `<h2>Prêt ?</h2><p>Sélectionnez un thème ci-dessus.</p>`; // Message spécifique si année sélectionnée mais pas de thème
          } else { // Si aucune année n'est sélectionnée (état initial ou après déselection d'année)
             // hideInterface() aura déjà mis les messages par défaut
