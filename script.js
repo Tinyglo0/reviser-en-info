@@ -141,7 +141,7 @@ function populateThemeSelector(selectedYear = null) {
                 const option = document.createElement('option');
                 option.value = themeKey;
                 // Utilise le titre du thème depuis themeConfigurations pour le nom de l'option
-                option.textContent = `${theme.icon || ''} ${theme.title.replace(/^\p{Emoji_Presentation}+\s*(Flash Cards)?\s*/u, '') || themeKey}`;
+                option.textContent = `${theme.icon || ''} ${theme.title.replace(/^\p{Extended_Pictographic}+\s*(Flash Cards)?\s*/u, '') || themeKey}`;
                 elements.themeSelector.appendChild(option);
             }
         }
