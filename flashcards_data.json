@@ -1,7 +1,7 @@
 {
     "themeConfigurations": {
         "tcp_ip": {
-            "title": "🛜 Flash Cards TCP/IP",
+            "title": "Flash Cards TCP/IP",
             "subtitle": "Maîtrisez les protocoles et services réseau",
             "icon": "🛜",
             "yearLevel": "2M",
@@ -12,7 +12,7 @@
             }
         },
         "adressage": {
-            "title": "⌨️ Flash Cards Adressage IP",
+            "title": "Flash Cards Adressage IP",
             "subtitle": "Comprenez IP, MAC et masques de sous-réseau",
             "icon": "⌨️",
             "yearLevel": "2M",
@@ -23,7 +23,7 @@
             }
         },
         "routage": {
-            "title": "🌐 Flash Cards Routage",
+            "title": "Flash Cards Routage",
             "subtitle": "Révisez les concepts essentiels du routage réseau",
             "icon": "🌐",
             "yearLevel": "2M",
@@ -34,7 +34,7 @@
             }
         },
         "programmation": {
-            "title": "💻 Flash Cards Programmation",
+            "title": "Flash Cards Programmation",
             "subtitle": "Maîtrisez les concepts de programmation",
             "hidden": false,
             "icon": "💻",
@@ -46,7 +46,7 @@
             }
         },
         "logique": {
-            "title": "🔌 Flash Cards Logique booléenne et portes logiques",
+            "title": "Flash Cards Logique booléenne et portes logiques",
             "subtitle": "Maîtrisez la logique booléenne et les portes logiques",
             "icon": "🔌",
             "yearLevel": "1M",
@@ -346,7 +346,7 @@
                     "category": "topologie",
                     "front": "Topologie Bus",
                     "question": "Comment fonctionne la topologie en bus et quels sont ses avantages/inconvénients ?",
-                    "back": "<span class='highlight'>Fonctionnement :</span><br>• Tous les appareils sur un câble principal<br>• Signal diffusé à tous les appareils<br>• Chaque appareil vérifie son adresse<br><br><table style='width:101%; border-collapse: collapse;'><tbody><tr><td style='width:50%; vertical-align:top; padding-right:10px;'><span class='highlight'>✅ Avantages :</span><br><br>• Simple et économique<br>• Facile à installer<br>• Peu de câblage nécessaire</td><td style='width:50%; vertical-align:top; padding-left:10px;'><span class='highlight'>❌ Inconvénients :</span><br><br>• Panne du câble = réseau down<br>• Performance dégradée avec plus d'appareils</td></tr></tbody></table>"
+                    "back": "<span class='highlight'>Fonctionnement :</span><br>• Tous les appareils sur un câble principal<br>• Signal diffusé à tous les appareils<br>• Chaque appareil vérifie son adresse<br><br><table style='width:102%; border-collapse: collapse;'><tbody><tr><td style='width:50%; vertical-align:top; padding-right:10px;'><span class='highlight'>✅ Avantages :</span><br><br>• Simple et économique<br>• Facile à installer<br>• Peu de câblage nécessaire</td><td style='width:50%; vertical-align:top; padding-left:10px;'><span class='highlight'>❌ Inconvénients :</span><br><br>• Panne du câble = réseau down<br>• Performance dégradée avec plus d'appareils</td></tr></tbody></table>"
                 },
                 {
                     "category": "topologie",
@@ -358,7 +358,7 @@
                     "category": "topologie",
                     "front": "Topologie Maillée",
                     "question": "Quels sont les avantages et inconvénients d'un réseau maillé ?",
-                    "back": "<span class='highlight'>Caractéristique :</span><br>Chaque nœud connecté à plusieurs autres<br><br><table style='width:105%; border-collapse: collapse;'><tbody><tr><td style='width:50%; vertical-align:top; padding-right:10px;'><span class='highlight'>✅ Avantages :</span><br><br>• <span class='highlight'>Très fiable</span> : plusieurs chemins possibles<br>• Redondance en cas de panne<br>• Performance élevée</td><td style='width:50%; vertical-align:top; padding-left:10px;'><span class='highlight'>❌ Inconvénients :</span><br><br>• Coût élevé (câblage complexe)<br>• Configuration complexe<br>• Maintenance difficile<br>• Beaucoup de câbles nécessaires</td></tr></tbody></table>"
+                    "back": "<span class='highlight'>Caractéristique :</span><br>Chaque nœud connecté à plusieurs autres<br><br><table style='width:105%; border-collapse: collapse;'><tbody><tr><td style='width:50%; vertical-align:top; padding-right:10px;'><span class='highlight'>✅ Avantages :</span><br><br>• <span class='highlight'>Très fiable</span> : plusieurs chemins possibles<br>• Redondance en cas de panne<br>• Performance élevée</td><td style='width:50%; vertical-align:top; padding-left:10px;'><span class='highlight'>❌ Inconvénients :</span><br><br>• Coût élevé<br>• Configuration complexe<br>• Maintenance difficile<br>• Beaucoup de câbles nécessaires</td></tr></tbody></table>"
                 }
             ]
         },
@@ -380,13 +380,13 @@
                     "category": "types_adresses",
                     "front": "Adresses IP vs MAC",
                     "question": "Quelles sont les différences entre adresse IP et adresse MAC ?",
-                    "back": "<table style='width:100%; border-collapse: collapse;'><tbody><tr><td style='line-height: 1.5;width:50%;'><span class='highlight'>Adresse IP :</span><br><br>• <span class='highlight'>4 octets</span> (32 bits)<br>• Adresse logique <span class='highlight'>modifiable</span><br>• Structure hiérarchique (routage)<br>• Change selon le réseau<br>• Exemple : <span class='highlight'>192.168.1.10</span></td><td style='line-height: 1.5;width:50%;'><span class='highlight'>Adresse MAC :</span><br><br>• <span class='highlight'>6 octets</span> (48 bits)<br>• Adresse physique <span class='highlight'>non modifiable</span><br>• Unique par carte réseau<br>• Définie par le constructeur<br>• Exemple : <span class='highlight'>A4:26:49:F9:52:D1</span></td></tr></tbody></table>"
+                    "back": "<table style='width:100%; border-collapse: collapse;'><tbody><tr><td style='line-height: 1.5;width:50%;'><span class='highlight'>Adresse IP :</span><br><br>• <span class='highlight'>4 octets</span> (32 bits)<br>• Adresse logique <span class='highlight'>modifiable</span><br>• Structure hiérarchique (routage)<br>• Change selon le réseau<br>• Exemple : <span class='highlight'>192.168.1.10</span></td><td style='line-height: 1.5;width:50%;vertical-align: top;'><span class='highlight'>Adresse MAC :</span><br><br>• <span class='highlight'>6 octets</span> (48 bits)<br>• Adresse physique <span class='highlight'>non modifiable</span><br>• Unique par carte réseau<br>• Définie par le constructeur<br>• Exemple : <span class='highlight'>A4:26:49:F9:52:D1</span></td></tr></tbody></table>"
                 },
                 {
                     "category": "types_adresses",
                     "front": "LAN vs WAN",
                     "question": "Quelle est la différence entre un réseau LAN et WAN ?",
-                    "back": "<table style='width:100%; border-collapse: collapse;'><tr><td style='width:50%; vertical-align:top; padding-right:10px;'><span class='highlight' style='line-height: 1.7;'>🏠 LAN (Local Area Network) :</span><br><br>• Réseau local<br>• Espace restreint (entreprise, domicile)<br>• Haut débit<br>• Coût faible<br>• Propriété privée</td><td style='width:50%; vertical-align:top; padding-left:10px;'><span class='highlight' style='line-height: 1.7;'>🌍 WAN (Wide Area Network) :</span><br><br>• Réseau étendu<br>• Échelle pays/continent<br>• Internet est un WAN public<br>• Utilise fibre optique, satellites<br>• Câbles sous-marins</td></tr></table>"
+                    "back": "<table style='width:100%; border-collapse: collapse;'><tr><td style='width:50%; vertical-align:top; padding-right:10px;'><span class='highlight' style='line-height: 1.7;vertical-align: top;'>🏠 LAN (Local Area Network) :</span><br><br>• Réseau local<br>• Espace restreint (entreprise, domicile)<br>• Haut débit<br>• Coût faible<br>• Propriété privée</td><td style='width:50%; vertical-align:top; padding-left:10px;'><span class='highlight' style='line-height: 1.7;vertical-align: top;'>🌍 WAN (Wide Area Network) :</span><br><br>• Réseau étendu<br>• Échelle pays/continent<br>• Internet est un WAN public<br>• Utilise fibre optique, satellites<br>• Câbles sous-marins</td></tr></table>"
                 },
                 {
                     "category": "masques",
