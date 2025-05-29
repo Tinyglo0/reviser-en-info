@@ -1,5 +1,27 @@
 {
     "themeConfigurations": {
+        "tcp_ip": {
+            "title": "🛜 Flash Cards TCP/IP",
+            "subtitle": "Maîtrisez les protocoles et services réseau",
+            "icon": "🛜",
+            "yearLevel": "2M",
+            "colors": {
+                "bg": "linear-gradient(135deg, #1e3c72, #2a5298)",
+                "cardFront": "linear-gradient(135deg, #667eea, #764ba2)",
+                "cardBack": "linear-gradient(135deg, #f093fb, #f5576c)"
+            }
+        },
+        "adressage": {
+            "title": "⌨️ Flash Cards Adressage",
+            "subtitle": "Comprenez IP, MAC et masques de sous-réseau",
+            "icon": "⌨️",
+            "yearLevel": "2M",
+            "colors": {
+                "bg": "linear-gradient(135deg, #0f4c75, #3282b8)",
+                "cardFront": "linear-gradient(135deg, #4834d4, #686de0)",
+                "cardBack": "linear-gradient(135deg, #00d2d3, #54a0ff)"
+            }
+        },
         "routage": {
             "title": "🌐 Flash Cards Routage",
             "subtitle": "Révisez les concepts essentiels du routage réseau",
@@ -51,70 +73,70 @@
             },
             "cards": [
                 {
-                "category": "concepts",
-                "front": "Configuration IP",
-                "question": "Quels sont les deux éléments essentiels pour configurer un nœud dans un réseau ?",
-                "back": "1. <span class='highlight'>Une adresse IP</span> : pour identifier de manière unique la machine sur le réseau<br><br>2. <span class='highlight'>Un masque de sous-réseau</span> : pour définir quelle partie de l'adresse IP appartient au réseau et quelle partie identifie la machine"
+                    "category": "concepts",
+                    "front": "Configuration IP",
+                    "question": "Quels sont les deux éléments essentiels pour configurer un nœud dans un réseau ?",
+                    "back": "1. <span class='highlight'>Une adresse IP</span> : pour identifier de manière unique la machine sur le réseau<br><br>2. <span class='highlight'>Un masque de sous-réseau</span> : pour définir quelle partie de l'adresse IP appartient au réseau et quelle partie identifie la machine"
                 },
                 {
-                "category": "concepts",
-                "front": "Le Routage",
-                "question": "Quel est le rôle du routage et comment fonctionne-t-il ?",
-                "back": "Le routage permet de déterminer le chemin qu'un paquet doit emprunter pour atteindre sa destination.<br><br><span class='highlight'>Processus :</span><br>1. Le routeur examine l'adresse IP du destinataire<br>2. Si elle n'appartient pas au même réseau, il consulte sa table de routage<br>3. Il détermine le routeur suivant sur la route vers la destination"
+                    "category": "concepts",
+                    "front": "Le Routage",
+                    "question": "Quel est le rôle du routage et comment fonctionne-t-il ?",
+                    "back": "Le routage permet de déterminer le chemin qu'un paquet doit emprunter pour atteindre sa destination.<br><br><span class='highlight'>Processus :</span><br>1. Le routeur examine l'adresse IP du destinataire<br>2. Si elle n'appartient pas au même réseau, il consulte sa table de routage<br>3. Il détermine le routeur suivant sur la route vers la destination"
                 },
                 {
-                "category": "concepts",
-                "front": "Types de Routage",
-                "question": "Quelles sont les différences entre le routage statique et dynamique ?",
-                "back": "<span class='highlight'>Routage Statique :</span><br>• Configuration manuelle<br>• Fastidieux pour les réseaux complexes<br>• Pas d'adaptation automatique aux pannes<br><br><span class='highlight'>Routage Dynamique :</span><br>• Configuration automatique par les routeurs<br>• Adaptation aux changements du réseau<br>• Utilise des protocoles de routage"
+                    "category": "concepts",
+                    "front": "Types de Routage",
+                    "question": "Quelles sont les différences entre le routage statique et dynamique ?",
+                    "back": "<table style='width:100%; border-collapse: collapse;'><tbody><tr><td style='width:50%; vertical-align:top; /*! padding-right:10px; */'><span class='highlight'>Statique :</span><br><br>• Configuration manuelle<br>• Fastidieux pour les réseaux complexes<br>• Pas d'adaptation automatique aux pannes<br>• Surveillance permanente requise</td><td style='width:50%; vertical-align:top; /*! padding-left:10px; */'><span class='highlight'>Dynamique :</span><br><br>• Configuration automatique par les routeurs<br>• Adaptation aux changements du réseau<br>• Utilise des protocoles de routage<br>• Recalcul automatique des routes</td></tr></tbody></table>"
                 },
                 {
-                "category": "rip",
-                "front": "Protocole RIP",
-                "question": "Qu'est-ce que le protocole RIP et quelles sont ses caractéristiques ?",
-                "back": "<span class='highlight'>RIP (Routing Information Protocol)</span><br><br>• Protocole à <span class='highlight'>vecteur de distance</span><br>• Métrique : <span class='highlight'>nombre de sauts (hops)</span><br>• Mise à jour toutes les <span class='highlight'>30 secondes</span><br>• Idéal pour les <span class='highlight'>petits réseaux</span>"
+                    "category": "rip",
+                    "front": "Protocole RIP",
+                    "question": "Qu'est-ce que le protocole RIP et quelles sont ses caractéristiques ?",
+                    "back": "<span class='highlight'>RIP (Routing Information Protocol)</span><br><br>• Protocole à <span class='highlight'>vecteur de distance</span><br>• Métrique : <span class='highlight'>nombre de sauts (hops)</span><br>• Mise à jour toutes les <span class='highlight'>30 secondes</span><br>• Idéal pour les <span class='highlight'>petits réseaux</span>"
                 },
                 {
-                "category": "rip",
-                "front": "Fonctionnement RIP",
-                "question": "Comment les routeurs RIP construisent-ils leur table de routage ?",
-                "back": "1. <span class='highlight'>Initialisation :</span> Table contient uniquement les réseaux directement connectés (métrique 0)<br><br>2. <span class='highlight'>Échanges périodiques :</span> Chaque routeur envoie sa table à ses voisins toutes les 30s<br><br>3. <span class='highlight'>Mise à jour :</span> Ajout des nouveaux réseaux avec métrique +1"
+                    "category": "rip",
+                    "front": "Fonctionnement RIP",
+                    "question": "Comment les routeurs RIP construisent-ils leur table de routage ?",
+                    "back": "1. <span class='highlight'>Initialisation :</span> Table contient uniquement les réseaux directement connectés (métrique 0)<br><br>2. <span class='highlight'>Échanges périodiques :</span> Chaque routeur envoie sa table à ses voisins toutes les 30s<br><br>3. <span class='highlight'>Mise à jour :</span> Ajout des nouveaux réseaux avec métrique +1"
                 },
                 {
-                "category": "rip",
-                "front": "Métrique RIP",
-                "question": "Comment fonctionne la métrique dans le protocole RIP ?",
-                "back": "La métrique RIP = <span class='highlight'>nombre de sauts</span><br><br>• Réseaux directement connectés : métrique <span class='highlight'>0</span><br>• Réseaux accessibles via 1 routeur : métrique <span class='highlight'>1</span><br>• Réseaux accessibles via 2 routeurs : métrique <span class='highlight'>2</span><br>• Etc.<br><br>RIP choisit le chemin avec le <span class='highlight'>moins de sauts</span>"
+                    "category": "rip",
+                    "front": "Métrique RIP",
+                    "question": "Comment fonctionne la métrique dans le protocole RIP ?",
+                    "back": "<p style='width: 108%;padding-right: 0px;padding-left: 0px;border-left-width: 0px;border-left-style: solid;'>La métrique RIP = <span class='highlight'>nombre de sauts</span><br>• Réseaux directement connectés : métrique <span class='highlight'>0</span><br>• Réseaux accessibles via 1 routeur : métrique <span class='highlight'>1</span><br>• Réseaux accessibles via 2 routeurs : métrique <span class='highlight'>2</span><br>• Etc.<br><br>RIP choisit le chemin avec le <span class='highlight'>moins de sauts</span></p>"
                 },
                 {
-                "category": "ospf",
-                "front": "Protocole OSPF",
-                "question": "Qu'est-ce que le protocole OSPF et en quoi diffère-t-il de RIP ?",
-                "back": "<span class='highlight'>OSPF (Open Shortest Path First)</span><br><br>• Protocole à <span class='highlight'>état de liens</span><br>• Métrique basée sur la <span class='highlight'>bande passante</span><br>• Cartographie complète du réseau<br>• Plus efficace que RIP pour les grands réseaux"
+                    "category": "ospf",
+                    "front": "Protocole OSPF",
+                    "question": "Qu'est-ce que le protocole OSPF et en quoi diffère-t-il de RIP ?",
+                    "back": "<span class='highlight'>OSPF (Open Shortest Path First)</span><br><br>• Protocole à <span class='highlight'>état de liens</span><br>• Métrique basée sur la <span class='highlight'>bande passante</span><br>• Cartographie complète du réseau<br>• Plus efficace que RIP pour les grands réseaux"
                 },
                 {
-                "category": "pratique",
-                "front": "Table de Routage",
-                "question": "Quelles informations contient une table de routage ?",
-                "back": "Une table de routage contient :<br><br>• <span class='highlight'>Réseau de destination</span> : réseau à atteindre<br>• <span class='highlight'>Passerelle</span> : adresse IP du routeur suivant<br>• <span class='highlight'>Interface de sortie</span> : interface réseau à utiliser<br>• <span class='highlight'>Métrique</span> : coût ou distance vers la destination"
+                    "category": "pratique",
+                    "front": "Table de Routage",
+                    "question": "Quelles informations contient une table de routage ?",
+                    "back": " <p style='line-height:2;'> Une table de routage contient :<br>• <span class='highlight'>Réseau de destination</span> : réseau à atteindre<br>• <span class='highlight'>Passerelle</span> : adresse IP du routeur suivant<br>• <span class='highlight'>Interface de sortie</span> : interface réseau à utiliser<br>• <span class='highlight'>Métrique</span> : coût ou distance vers la destination</p>"
                 },
                 {
-                "category": "pratique",
-                "front": "Analyse de Panne",
-                "question": "Que se passe-t-il quand une liaison tombe en panne ?",
-                "back": "<span class='highlight'>Routage Statique :</span><br>• Reconfiguration manuelle nécessaire<br>• Surveillance permanente requise<br><br><span class='highlight'>Routage Dynamique :</span><br>• Détection automatique de la panne<br>• Recalcul automatique des routes<br>• Utilisation de chemins alternatifs"
+                    "category": "pratique",
+                    "front": "Analyse de Panne",
+                    "question": "Que se passe-t-il quand une liaison tombe en panne ?",
+                    "back": "<table style='width:100%; border-collapse: collapse;'><tr><td style='width:50%; vertical-align:top;'><span class='highlight'>Statique :</span><br><br>• Reconfiguration manuelle nécessaire<br>• Surveillance permanente requise<br>• Interruption du service<br>• Intervention humaine obligatoire</td><td style='width:50%; vertical-align:top;'><span class='highlight'>Dynamique :</span><br><br>• Détection automatique de la panne<br>• Recalcul automatique des routes<br>• Utilisation de chemins alternatifs<br>• Rétablissement automatique du service</td></tr></table>"
                 },
                 {
-                "category": "pratique",
-                "front": "Choix du Protocole",
-                "question": "Dans quels cas utiliser RIP vs OSPF ?",
-                "back": "<span class='highlight'>Utiliser RIP :</span><br>• Petits réseaux simples<br>• Configuration facile<br>• Tous les liens ont des débits similaires<br><br><span class='highlight'>Utiliser OSPF :</span><br>• Réseaux complexes<br>• Liens de débits différents<br>• Besoin d'optimisation des performances"
+                    "category": "pratique",
+                    "front": "Choix du Protocole",
+                    "question": "Dans quels cas utiliser RIP vs OSPF ?",
+                    "back": "<table style='width:100%; border-collapse: collapse;'><tr><td style='width:50%; vertical-align:top;'><span class='highlight'>Utiliser RIP :</span><br><br>• Petits réseaux simples<br>• Configuration facile<br>• Tous les liens ont des débits similaires<br>• Environnement stable</td><td style='width:50%; vertical-align:top;'><span class='highlight'>Utiliser OSPF :</span><br><br>• Réseaux complexes<br>• Liens de débits différents<br>• Besoin d'optimisation des performances<br>• Réseaux de grande taille</td></tr></table>"
                 },
                 {
-                "category": "pratique",
-                "front": "Dépannage Réseau",
-                "question": "Comment identifier le chemin d'un paquet dans un réseau ?",
-                "back": "1. <span class='highlight'>Examiner la table de routage</span> du routeur source<br>2. <span class='highlight'>Suivre la passerelle</span> indiquée pour le réseau destination<br>3. <span class='highlight'>Répéter l'opération</span> pour chaque routeur traversé<br>4. <span class='highlight'>Vérifier les métriques</span> pour comprendre les choix de routage"
+                    "category": "pratique",
+                    "front": "Dépannage Réseau",
+                    "question": "Comment identifier le chemin d'un paquet dans un réseau ?",
+                    "back": "1. <span class='highlight'>Examiner la table de routage</span> du routeur source<br>2. <span class='highlight'>Suivre la passerelle</span> indiquée pour le réseau destination<br>3. <span class='highlight'>Répéter l'opération</span> pour chaque routeur traversé<br>4. <span class='highlight'>Vérifier les métriques</span> pour comprendre les choix de routage"
                 }
             ]
         },
@@ -176,13 +198,13 @@
                     "category": "structures",
                     "front": "Structure elif",
                     "question": "Comment utiliser elif pour les conditions multiples ?",
-                    "back": "<span class='highlight'>elif</span> permet d'ajouter des conditions supplémentaires :<br><br><code>if condition1:<br>&nbsp;&nbsp;# code 1<br>elif condition2:<br>&nbsp;&nbsp;# code 2<br>else:<br>&nbsp;&nbsp;# code par défaut</code><br><br>• Évaluation <span class='highlight'>séquentielle</span><br>• Dès qu'une condition est vraie, les autres ne sont pas testées<br>• Plus efficace que plusieurs if séparés"
+                    "back": "        <p><span class='highlight'>elif</span> permet d'ajouter plus de conditions :<br></p><pre style='border: 1px solid #fff;padding: 10px; border-radius: 4px; /* optionnel */  /*! background: #f8f8f8; */ /* optionnel pour améliorer la lisibilité */width: 50%;text-align: center;/*! padding-left: 50%; */margin-left: 25%;'><code style='/*! align-content: end; *//*! border-block: 1px solid black; */text-align: left;'>if condition1:<br>&nbsp;&nbsp;# code 1<br>elif condition2:<br>&nbsp;&nbsp;# code 2<br>else:<br>&nbsp;&nbsp;# code par défaut</code></pre><br>• Évaluation <span class='highlight'>séquentielle</span>➡️ Dès qu'une condition est vraie, les autres ne sont pas testées <span class='highlight'>Plus efficace que plusieurs if séparés</span><p></p>"
                 },
                 {
                     "category": "bases",
                     "front": "Variables de contrôle",
                     "question": "Qu'est-ce qu'une variable de contrôle dans une boucle ?",
-                    "back": "Une <span class='highlight'>variable de contrôle</span> détermine le comportement d'une boucle :<br><br><span class='highlight'>Dans for :</span><br>• Variable automatique (ex: <code>i</code> dans <code>for i in range()</code>)<br>• Valeur gérée par Python<br><br><span class='highlight'>Dans while :</span><br>• Variable à <span class='highlight'>initialiser</span> avant la boucle<br>• Variable à <span class='highlight'>modifier</span> dans la boucle<br>• Contrôle la condition d'arrêt"
+                    "back": "<p>Une <span class='highlight'>variable de contrôle</span> détermine le comportement d'une boucle :<br><br><span class='highlight'>Dans for :</span><br>• Variable automatique (ex: <code>i</code> dans <code>for i in range()</code>) : cette valeur est gérée par Python<br><br><span class='highlight'>Dans while :</span><br>• Variable à <span class='highlight'>initialiser</span> avant la boucle<br>• Variable à <span class='highlight'>modifier</span> dans la boucle</p>"
                 }
             ]
         },
@@ -265,6 +287,130 @@
                     "front": "Portes à entrées multiples",
                     "question": "Comment fonctionnent les portes logiques à entrées multiples ?",
                     "back": "Les portes logiques peuvent accepter <span class='highlight'>plus de deux entrées</span>.<br><br>Exemples d'expressions :<br>• AND 3 entrées : <span class='highlight'>Q = A ∧ B ∧ C</span><br>• OR 3 entrées : <span class='highlight'>Q = A ∨ B ∨ C</span><br>• XOR 3 entrées : <span class='highlight'>Q = A ⊕ B ⊕ C</span><br><br>Une seule porte implémente la logique de plusieurs portes en série."
+                }
+            ]
+        },
+        "tcp_ip": {
+            "categories": [
+                "protocoles",
+                "services",
+                "ports",
+                "couches",
+                "topologie"
+            ],
+            "categoryNames": {
+                "protocoles": "Protocoles",
+                "services": "Services",
+                "ports": "Ports",
+                "couches": "Couches",
+                "topologie": "Topologie"
+            },
+            "cards": [
+                {
+                    "category": "protocoles",
+                    "front": "TCP vs UDP",
+                    "question": "Quelles sont les principales différences entre TCP et UDP ?",
+                    "back": "<table style='width:100%; border-collapse: collapse;'><tr><td style='width:50%; vertical-align:top; padding-right:10px;'><span class='highlight'>TCP :</span><br><br>• Protocole <span class='highlight'>orienté connexion</span><br>• Établit une connexion stable<br>• Garantit la livraison des données<br>• Plus lent mais fiable</td><td style='width:50%; vertical-align:top; padding-left:10px;'><span class='highlight'>UDP :</span><br><br>• Protocole <span class='highlight'>sans connexion</span><br>• Envoie les données sans liaison préalable<br>• Pas de garantie de livraison<br>• Plus rapide mais moins fiable</td></tr></table>"
+                },
+                {
+                    "category": "services",
+                    "front": "DNS",
+                    "question": "Quel est le rôle du DNS et comment fonctionne-t-il ?",
+                    "back": "<p><span class='highlight'>Rôle :</span> Le DNS sert à convertir les noms de domaine en adresses IP<br><br><span class='highlight'>Processus de résolution :</span><br>1. Requête DNS initiée<br>2. Contact du serveur DNS récursif<br>3. Interrogation des serveurs racine<br>4. Contact des serveurs de premier niveau<br>5. Obtention de l'IP du serveur autoritaire<br><br><span class='highlight'>Port :</span> 53</p>"
+                },
+                {
+                    "category": "services",
+                    "front": "DHCP",
+                    "question": "Quels sont les rôles principaux du service DHCP ?",
+                    "back": "<p><span class='highlight'>• Attribution dynamique d'adresses IP</span> : Assigne automatiquement des adresses IP aux appareils<br>• <span class='highlight'>Configuration réseau supplémentaire</span> : Fournit masque de sous-réseau, passerelle, serveurs DNS<br>• <span class='highlight'>Gestion des baux</span> : Définit une durée de validité pour chaque attribution (renouvelable automatiquement)<br><br><span class='highlight'>Ports :</span> 67/68<div></div></p>"
+                },
+                {
+                    "category": "ports",
+                    "front": "Ports principaux",
+                    "question": "Quels sont les ports des protocoles HTTP, HTTPS, SMTP et DNS ?",
+                    "back": "• <span class='highlight'>HTTP :</span> Port 80<br>• <span class='highlight'>HTTPS :</span> Port 443<br>• <span class='highlight'>SMTP :</span> Ports 25, 465, 587<br>• <span class='highlight'>DNS :</span> Port 53<br>• <span class='highlight'>DHCP :</span> Ports 67/68"
+                },
+                {
+                    "category": "couches",
+                    "front": "Modèle TCP/IP",
+                    "question": "Quelles sont les 4 couches du modèle TCP/IP ?",
+                    "back": "<span class='highlight'>Couches du modèle TCP/IP :</span><br><br>4. <span class='highlight'>Application</span> : HTTP, HTTPS, SMTP, DNS<br><br>3. <span class='highlight'>Transport</span> : TCP, UDP<br><br>2. <span class='highlight'>Internet</span> : IP<br><br>1. <span class='highlight'>Accès réseau</span> : Ethernet, Wi-Fi"
+                },
+                {
+                    "category": "topologie",
+                    "front": "Topologies réseau",
+                    "question": "Quelles sont les 4 principales topologies réseau ?",
+                    "back": "<p><span class='highlight'>Les 4 principales topologies :</span><br><br>• <span class='highlight'>Bus</span> : Tous les appareils sur un câble unique<br>• <span class='highlight'>Étoile</span> : Tous les appareils connectés à un point central <span class='highlight'>(plus utilisée)</span><br>• <span class='highlight'>Maillé</span> : Chaque nœud connecté à plusieurs autres<br>• <span class='highlight'>Anneau</span> : Connexion circulaire <span class='highlight'>(moins utilisée)</span></p>"
+                },
+                {
+                    "category": "topologie",
+                    "front": "Topologie Bus",
+                    "question": "Comment fonctionne la topologie en bus et quels sont ses avantages/inconvénients ?",
+                    "back": "<span class='highlight'>Fonctionnement :</span><br>• Tous les appareils sur un câble principal<br>• Signal diffusé à tous les appareils<br>• Chaque appareil vérifie son adresse<br><br><table style='width:101%; border-collapse: collapse;'><tbody><tr><td style='width:50%; vertical-align:top; padding-right:10px;'><span class='highlight'>✅ Avantages :</span><br><br>• Simple et économique<br>• Facile à installer<br>• Peu de câblage nécessaire</td><td style='width:50%; vertical-align:top; padding-left:10px;'><span class='highlight'>❌ Inconvénients :</span><br><br>• Panne du câble = réseau down<br>• Performance dégradée avec plus d'appareils</td></tr></tbody></table>"
+                },
+                {
+                    "category": "topologie",
+                    "front": "Topologie Étoile",
+                    "question": "Décrivez la topologie en étoile et ses caractéristiques.",
+                    "back": "<span class='highlight'>Fonctionnement :</span><br>• Point central (switch/routeur)<br>• Connexion directe de chaque appareil<br>• Communication via le nœud central<br><br><table style='width:105%; border-collapse: collapse;'><tbody><tr><td style='width:50%; vertical-align:top; padding-right:10px;'><span class='highlight'>✅ Avantages :</span><br>• Panne d'un appareil n'affecte pas les autres<br>• Facile à diagnostiquer<br>• Performance stable<br>• Sécurité renforcée</td><td style='width:50%; vertical-align:top; padding-left:10px;'><span class='highlight'>❌ Inconvénients :</span><br>• Panne du point central = plus de réseau<br>• Plus coûteux en câblage</td></tr></tbody></table>"
+                },
+                {
+                    "category": "topologie",
+                    "front": "Topologie Maillée",
+                    "question": "Quels sont les avantages et inconvénients d'un réseau maillé ?",
+                    "back": "<span class='highlight'>Caractéristique :</span><br>Chaque nœud connecté à plusieurs autres<br><br><table style='width:105%; border-collapse: collapse;'><tbody><tr><td style='width:50%; vertical-align:top; padding-right:10px;'><span class='highlight'>✅ Avantages :</span><br><br>• <span class='highlight'>Très fiable</span> : plusieurs chemins possibles<br>• Redondance en cas de panne<br>• Performance élevée</td><td style='width:50%; vertical-align:top; padding-left:10px;'><span class='highlight'>❌ Inconvénients :</span><br><br>• Coût élevé (câblage complexe)<br>• Configuration complexe<br>• Maintenance difficile<br>• Beaucoup de câbles nécessaires</td></tr></tbody></table>"
+                }
+            ]
+        },
+        "adressage": {
+            "categories": [
+                "types_adresses",
+                "masques",
+                "calculs",
+                "pratique"
+            ],
+            "categoryNames": {
+                "types_adresses": "Types d'adresses",
+                "masques": "Masques",
+                "calculs": "Calculs",
+                "pratique": "Pratique"
+            },
+            "cards": [
+                {
+                    "category": "types_adresses",
+                    "front": "Adresses IP vs MAC",
+                    "question": "Quelles sont les différences entre adresse IP et adresse MAC ?",
+                    "back": "<table style='width:100%; border-collapse: collapse;'><tbody><tr><td style='line-height: 1.5;width:50%;'><span class='highlight'>Adresse IP :</span><br><br>• <span class='highlight'>4 octets</span> (32 bits)<br>• Adresse logique <span class='highlight'>modifiable</span><br>• Structure hiérarchique (routage)<br>• Change selon le réseau<br>• Exemple : <span class='highlight'>192.168.1.10</span></td><td style='line-height: 1.5;width:50%;'><span class='highlight'>Adresse MAC :</span><br><br>• <span class='highlight'>6 octets</span> (48 bits)<br>• Adresse physique <span class='highlight'>non modifiable</span><br>• Unique par carte réseau<br>• Définie par le constructeur<br>• Exemple : <span class='highlight'>A4:26:49:F9:52:D1</span></td></tr></tbody></table>"
+                },
+                {
+                    "category": "types_adresses",
+                    "front": "LAN vs WAN",
+                    "question": "Quelle est la différence entre un réseau LAN et WAN ?",
+                    "back": "<table style='width:100%; border-collapse: collapse;'><tr><td style='width:50%; vertical-align:top; padding-right:10px;'><span class='highlight' style='line-height: 1.7;'>🏠 LAN (Local Area Network) :</span><br><br>• Réseau local<br>• Espace restreint (entreprise, domicile)<br>• Haut débit<br>• Coût faible<br>• Propriété privée</td><td style='width:50%; vertical-align:top; padding-left:10px;'><span class='highlight' style='line-height: 1.7;'>🌍 WAN (Wide Area Network) :</span><br><br>• Réseau étendu<br>• Échelle pays/continent<br>• Internet est un WAN public<br>• Utilise fibre optique, satellites<br>• Câbles sous-marins</td></tr></table>"
+                },
+                {
+                    "category": "masques",
+                    "front": "Masque de sous-réseau",
+                    "question": "À quoi sert un masque de sous-réseau ?",
+                    "back": "<table style='width:100%; border-collapse: collapse;'><tbody><tr><td style='/*! width:50%; */ vertical-align:top; /*! padding-right:10px; */line-height: 1.5;'><span class='highlight'>Rôle du masque :</span><br><br>• Déterminer la <span class='highlight'>partie réseau</span> de l'adresse IP<br>• Identifier les machines du même sous-réseau<br>• Définir la portée du réseau local</td><td style='/*! width:50%; */ vertical-align:top; /*! padding-left:10px; */line-height: 1.5;'><span class='highlight'>Structure :</span><br><br>• Commence par une série de <span class='highlight'>1</span> (partie réseau)<br>• Termine par une série de <span class='highlight'>0</span> (partie hôte)<br>• Détermine la <span class='highlight'>partie hôte</span> de l'adresse IP</td></tr></tbody></table> <br> Exemple : 255.255.255.0 = <span class='highlight'>/24</span> (24 bits à 1)"
+                },
+                {
+                    "category": "calculs",
+                    "front": "Notation CIDR",
+                    "question": "Que signifie la notation 192.168.1.10/24 ?",
+                    "back": "<table style='width:100%; border-collapse: collapse;'><tbody><tr><td style='width:50%; /*! padding-right:40pt; */line-height: 1.5;vertical-align: top;'><span class='highlight'>Explication :</span><br><br>• <span class='highlight'>192.168.1.10</span> : Adresse IP<br>• <span class='highlight'>/24</span> : 24 bits à 1 dans le masque<br>• Équivaut au masque <span class='highlight'>255.255.255.0</span></td><td style='width:50%; /*! padding-left:53px; */line-height: 1.5;vertical-align: top;'><span class='highlight'>Informations réseaux :</span><br><br>• Réseau : 192.168.1.0<br>• 256 adresses possibles (de 1 à 254)<br>• 254 hôtes utilisables<br></td></tr></tbody></table>"
+                },
+                {
+                    "category": "calculs",
+                    "front": "Calcul d'adresses",
+                    "question": "Comment calculer le nombre d'hôtes possibles avec un masque ?",
+                    "back": "<span class='highlight'>Formule :</span><br>Nombre d'hôtes = 2^n - 2<br><br>• <span class='highlight'>n</span> = nombre de bits à 0 dans le masque<br>• <span class='highlight'>-2</span> car on exclut :<br>  - Adresse réseau (tous les bits hôte à 0)<br>  - Adresse de diffision (tous les bits hôte à 1)<br><br><span class='highlight'>Exemple :</span><br>Masque /24 → 8 bits pour les hôtes<br>2^8 - 2 = 256 - 2 = <span class='highlight'>254 hôtes</span>"
+                },
+                {
+                    "category": "pratique",
+                    "front": "Configuration réseau",
+                    "question": "Quels sont les éléments essentiels pour configurer un nœud réseau ?",
+                    "back": "<p style='line-height: 2;width: 102%;'><span class='highlight'>Configuration minimale :</span><br><br>1. <span class='highlight'>Adresse IP</span> : Identifie la machine<br>2. <span class='highlight'>Masque de sous-réseau</span> : Définit le réseau<br>3. <span class='highlight'>Passerelle (Gateway)</span> : Routeur pour sortir du LAN<br>4. <span class='highlight'>Serveur DNS</span> : Résolution des noms de domaine</p>"
                 }
             ]
         }

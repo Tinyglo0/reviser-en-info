@@ -145,7 +145,8 @@ body {
 
 .card-content {
     text-align: center;
-    max-width: 100%;
+    width: 100%;
+    /* max-width: 100%; */
 }
 
 .card-content h2 {
