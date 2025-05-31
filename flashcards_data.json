@@ -1,5 +1,27 @@
 {
     "themeConfigurations": {
+        "binaire": {
+            "title": "Flash Cards Représentation Binaire",
+            "subtitle": "Maîtrisez la conversion et les calculs en base 2",
+            "icon": "0️⃣/1️⃣",
+            "yearLevel": "1M",
+            "colors": {
+    "bg": "linear-gradient(135deg, #0d47a1, #1565c0)",
+    "cardFront": "linear-gradient(135deg, #1976d2, #2196f3)",
+    "cardBack": "linear-gradient(135deg, #00bcd4, #4dd0e1)"
+            }
+        },
+        "hexadecimal": {
+            "title": "Flash Cards Représentation Hexadécimale",
+            "subtitle": "Comprenez la base 16 et ses conversions",
+            "icon": "1️⃣6️⃣",
+            "yearLevel": "1M",
+            "colors": {
+                "bg": "linear-gradient(135deg, #2c3e50, #34495e)",
+                "cardFront": "linear-gradient(135deg, #8e44ad, #9b59b6)",
+                "cardBack": "linear-gradient(135deg, #e74c3c, #f39c12)"
+            }
+        },
         "tcp_ip": {
             "title": "Flash Cards TCP/IP",
             "subtitle": "Maîtrisez les protocoles et services réseau",
@@ -58,6 +80,140 @@
         }
     },
     "flashcardSets": {
+        "binaire": {
+            "categories": [
+                "concepts",
+                "conversions",
+                "calculs",
+                "pratique"
+            ],
+            "categoryNames": {
+                "concepts": "Concepts de base",
+                "conversions": "Conversions",
+                "calculs": "Calculs et méthodes",
+                "pratique": "Applications pratiques"
+            },
+            "cards": [
+                {
+                    "category": "concepts",
+                    "front": "Le système binaire",
+                    "question": "Qu'est-ce que le système binaire et pourquoi est-il utilisé en informatique ?",
+                    "back": "Le <span class='highlight'>système binaire</span> est un système de numération en <span class='highlight'>base 2</span> qui utilise seulement deux chiffres : <span class='highlight'>0 et 1</span>.<br><br>• Chaque chiffre binaire est appelé un <span class='highlight'>bit</span> (binary digit)<br>• Utilisé en informatique car les ordinateurs fonctionnent avec des <span class='highlight'>signaux électriques</span> (présence/absence de courant)<br>• Permet aux composants d'un ordinateur de <span class='highlight'>communiquer</span> dans le même langage"
+                },
+                {
+                    "category": "concepts",
+                    "front": "Bit et octet",
+                    "question": "Quelle est la différence entre un bit et un octet ?",
+                    "back": "• <span class='highlight'>Bit</span> : Unité de base du binaire, peut valoir <span class='highlight'>0 ou 1</span><br><br>• <span class='highlight'>Octet</span> : Paquet de <span class='highlight'>8 bits</span><br><br><span class='highlight'>Exemple :</span><br>Une adresse IP est codée sur <span class='highlight'>32 bits</span> soit <span class='highlight'>4 octets</span><br>192.168.1.1 = 4 nombres de 0 à 255 (2<sup>8</sup> = 256 valeurs)"
+                },
+                {
+                    "category": "concepts",
+                    "front": "États possibles",
+                    "question": "Combien d'états différents peut-on représenter avec n bits ?",
+                    "back": "Avec <span class='highlight'>n bits</span>, on peut représenter <span class='highlight'>2<sup>n</sup> états différents</span>.<br><br><span class='highlight'>Exemples :</span><br>• 1 bit : 2<sup>1</sup> = <span class='highlight'>2 états</span> (0, 1)<br>• 2 bits : 2<sup>2</sup> = <span class='highlight'>4 états</span> (00, 01, 10, 11)<br>• 3 bits : 2<sup>3</sup> = <span class='highlight'>8 états</span><br>• 4 bits : 2<sup>4</sup> = <span class='highlight'>16 états</span><br>• 8 bits : 2<sup>8</sup> = <span class='highlight'>256 états</span>"
+                },
+                {
+                    "category": "conversions",
+                    "front": "Binaire vers décimal",
+                    "question": "Comment convertir un nombre binaire en décimal ?",
+                    "back": "On utilise les <span class='highlight'>puissances de 2</span> de droite à gauche en commençant à compter à <span class='highlight'>partir de 0</span>:<br><br><span class='highlight'>Exemple : 01100001₍₂₎</span><br><br>• Position 0 : 1 × 2⁰ = 1 × 1 = 1<br>• Position 5 : 1 × 2⁵ = 1 × 32 = 32<br>• Position 6 : 1 × 2⁶ = 1 × 64 = 64<br><br><span class='highlight'>Total :</span> 64 + 32 + 1 = <span class='highlight'>97₍₁₀₎</span>"
+                },
+                {
+                    "category": "conversions",
+                    "front": "Tableau de conversion",
+                    "question": "Quelles sont les puissances de 2 les plus courantes pour la conversion ?",
+                    "back": "<table style='width:100%; border-collapse: collapse; text-align: center;'><tr><td><span class='highlight'>2⁷</span></td><td><span class='highlight'>2⁶</span></td><td><span class='highlight'>2⁵</span></td><td><span class='highlight'>2⁴</span></td><td><span class='highlight'>2³</span></td><td><span class='highlight'>2²</span></td><td><span class='highlight'>2¹</span></td><td><span class='highlight'>2⁰</span></td></tr><tr><td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td></tr></table><br>Pour convertir, on additionne les valeurs des positions où il y a un <span class='highlight'>1</span>."
+                },
+                {
+                    "category": "calculs",
+                    "front": "Divisions successives",
+                    "question": "Comment utiliser la méthode des divisions successives pour convertir en binaire ?",
+                    "back": "<table style='width:100%; border-collapse: collapse; line-height:1.5;'><tbody><tr><td style='width:50%; vertical-align: top; padding-right: 15px;'><span class='highlight'>Méthode :</span><br>1. Diviser le nombre décimal par <span class='highlight'>2</span><br>2. Noter le <span class='highlight'>reste</span> (0 ou 1)<br>3. Continuer avec le <span class='highlight'>quotient</span><br>4. S'arrêter quand le quotient = 0<br>5. Lire les restes de <span class='highlight'>bas en haut</span></td><td style='width:50%; vertical-align: top; padding-left: 15px;'><span class='highlight'>Exemple pour 48₍₁₀₎ :</span><br>48 ÷ 2 = 24 reste 0<br>24 ÷ 2 = 12 reste 0<br>12 ÷ 2 = 6 reste 0<br>6 ÷ 2 = 3 reste 0<br>3 ÷ 2 = 1 reste 1<br>1 ÷ 2 = 0 reste 1<br><br>Résultat : <span class='highlight'>110000₍₂₎</span></td></tr></tbody></table>"
+                },
+                {
+                    "category": "calculs",
+                    "front": "Méthode intuitive",
+                    "question": "Comment utiliser la méthode des puissances de 2 pour convertir en binaire ?",
+                    "back": "<table style='width:100%; border-collapse: collapse;line-height:1.5;'><tr><td style='width:50%; vertical-align: top; padding-right: 15px;'><span class='highlight'>Méthode :</span><br>1. Écrire les puissances de 2 jusqu'à dépasser le nombre<br>2. Pour chaque puissance, de gauche à droite :<br>   - Si ≤ au nombre restant : écrire <span class='highlight'>1</span> et soustraire<br>   - Sinon : écrire <span class='highlight'>0</span></td><td style='width:50%; vertical-align: top; padding-left: 15px;'><span class='highlight'>Exemple pour 38₍₁₀₎ :</span><br>32 16 8 4 2 1<br>38 ≥ 32 → 1, reste 6<br>6 < 16 → 0<br>6 < 8 → 0<br>6 ≥ 4 → 1, reste 2<br>2 ≥ 2 → 1, reste 0<br>0 < 1 → 0<br><br>Résultat : <span class='highlight'>100110₍₂₎</span></td></tr></table>"
+                },
+                {
+                    "category": "pratique",
+                    "front": "Exemples de conversion",
+                    "question": "Convertissez 01100000₍₂₎ et 10000000₍₂₎ en décimal.",
+                    "back": "<span class='highlight'>01100000₍₂₎ :</span><br>• Position 5 : 1 × 2⁵ = 32<br>• Position 6 : 1 × 2⁶ = 64<br>• Total : 64 + 32 = <span class='highlight'>96₍₁₀₎</span><br><br><span class='highlight'>10000000₍₂₎ :</span><br>• Position 7 : 1 × 2⁷ = 128<br><br>Total : <span class='highlight'>128₍₁₀₎</span>"
+                },
+                {
+                    "category": "pratique",
+                    "front": "Représentation des nombres",
+                    "question": "Comment écrit-on un nombre selon sa base ?",
+                    "back": "On utilise des <span class='highlight'>indices</span> pour indiquer la base :<br><br>• <span class='highlight'>97₍₁₀₎</span> : nombre 97 en base 10 (décimal)<br>• <span class='highlight'>01100001₍₂₎</span> : nombre en base 2 (binaire)<br>• Les deux représentent la <span class='highlight'>même valeur</span><br><br><span class='highlight'>Base 10 :</span> utilise les chiffres 0-9, regroupements par puissances de 10<br><span class='highlight'>Base 2 :</span> utilise seulement 0-1, regroupements par puissances de 2"
+                }
+            ]
+        },
+        "hexadecimal": {
+            "categories": [
+                "concepts",
+                "conversions",
+                "pratique",
+                "binaire_hex"
+            ],
+            "categoryNames": {
+                "concepts": "Concepts de base",
+                "conversions": "Conversions",
+                "pratique": "Applications pratiques",
+                "binaire_hex": "Binaire ⟷ Hexadécimal"
+            },
+            "cards": [
+                {
+                    "category": "concepts",
+                    "front": "Système hexadécimal",
+                    "question": "Qu'est-ce que le système hexadécimal et pourquoi l'utilise-t-on ?",
+                    "back": "<p style='line-height:1.8'>Le <span class='highlight'>système hexadécimal</span> est un système de numération en <span class='highlight'>base 16</span>.<br><br><span class='highlight'>Symboles utilisés :</span><br>• Chiffres : <span class='highlight'>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</span><br>• Lettres : <span class='highlight'>A, B, C, D, E, F</span><br><br><span class='highlight'>Avantages :</span><br>• <span class='highlight'>4 fois plus compact</span> que le binaire<br>• Améliore la <span class='highlight'>lisibilité</span></p>"
+                },
+                {
+                    "category": "concepts",
+                    "front": "Correspondance hex-décimal",
+                    "question": "Quelle est la correspondance entre les lettres hexadécimales et les valeurs décimales ?",
+                    "back": "<table style='width:80%; border-collapse: collapse; text-align: center;line-height: 2;margin: auto;'><tbody><tr><td style='width: 15%;'><span class='highlight'>Hex</span></td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td></tr><tr><td><span class='highlight'>Déc</span></td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td></tr></tbody></table><br><span class='highlight'>Important :</span> Ces lettres représentent des valeurs supérieures à 9, nécessaires pour la base 16."
+                },
+                {
+                    "category": "conversions",
+                    "front": "Hexadécimal vers décimal",
+                    "question": "Comment convertir un nombre hexadécimal en décimal ?",
+                    "back": "On utilise les <span class='highlight'>puissances de 16</span> de droite à gauche :<br><br><span class='highlight'>Exemple : A3₍₁₆₎</span><br>• Position 0 : 3 × 16⁰ = 3 × 1 = 3<br>• Position 1 : A × 16¹ = 10 × 16 = 160<br><br><span class='highlight'>Total :</span> 160 + 3 = <span class='highlight'>163₍₁₀₎</span><br><br><span class='highlight'>Autre exemple : 4B8₍₁₆₎</span><br>4×16² + 11×16¹ + 8×16⁰ = 1024 + 176 + 8 = <span class='highlight'>1208₍₁₀₎</span>"
+                },
+                {
+                    "category": "conversions",
+                    "front": "Décimal vers hexadécimal",
+                    "question": "Comment convertir un nombre décimal en hexadécimal ?",
+                    "back": "<table style='width:100%; border-collapse: collapse;line-height: 1.7;'><tbody><tr><td style='width:50%; vertical-align: top; padding-right: 15px;'><span class='highlight'>Avec les divisions successives:</span><br>1. Diviser par <span class='highlight'>16</span> et noter le <span class='highlight'>reste</span><br>3. Continuer avec le <span class='highlight'>quotient</span><br>4. S'arrêter quand quotient = 0<br>5. Lire les restes de <span class='highlight'>bas en haut</span></td><td style='width:50%; vertical-align: top; padding-left: 15px;'><span class='highlight'>Exemple pour 444₍₁₀₎ :</span><br>444 ÷ 16 = 27 reste 12 (C)<br>27 ÷ 16 = 1 reste 11 (B)<br>1 ÷ 16 = 0 reste 1<br><br>Résultat : <span class='highlight'>1BC₍₁₆₎</span></td></tr></tbody></table>"
+                },
+                {
+                    "category": "binaire_hex",
+                    "front": "Binaire vers hexadécimal",
+                    "question": "Comment convertir directement du binaire vers l'hexadécimal ?",
+                    "back": "<p><span class='highlight'>Méthode :</span> Regrouper les bits par <span class='highlight'>4</span> (de droite à gauche) et convertir chaque groupe.<br><br><span class='highlight'>Exemple :</span><br></p><table style='margin: auto;border-spacing: 30px 0px;'><tbody><tr><td>0110</td><td>1000</td><td>0010</td><td>1101</td></tr><tr><td>6</td><td>8</td><td>2</td><td>D</td></tr></tbody></table><br>Résultat : <span class='highlight'>682D₍₁₆₎</span><br><br><span class='highlight'>Pourquoi ça marche :</span><br>• 4 bits = 16 combinaisons (0000 à 1111) ce qui correspond exactement aux 16 symboles hex (0 à F)"
+                },
+                {
+                    "category": "binaire_hex",
+                    "front": "Tableau de correspondance",
+                    "question": "Quelles sont les correspondances entre groupes de 4 bits et chiffres hexadécimaux ?",
+                    "back": "<table style='width:100%; border-collapse: collapse; text-align: center; font-size: 0.9em;line-height:2'><tr><td><span class='highlight'>Bin</span></td><td>0000</td><td>0001</td><td>0010</td><td>0011</td><td>0100</td><td>0101</td><td>0110</td><td>0111</td></tr><tr><td><span class='highlight'>Hex</span></td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr><tr><td><span class='highlight'>Bin</span></td><td>1000</td><td>1001</td><td>1010</td><td>1011</td><td>1100</td><td>1101</td><td>1110</td><td>1111</td></tr><tr><td><span class='highlight'>Hex</span></td><td>8</td><td>9</td><td>A</td><td>B</td><td>C</td><td>D</td><td>E</td><td>F</td></tr></table>"
+                },
+                {
+                    "category": "pratique",
+                    "front": "Exemples pratiques",
+                    "question": "Convertissez E₍₁₆₎ et 10₍₁₆₎ en décimal.",
+                    "back": "<span class='highlight'>E₍₁₆₎ :</span><br>• E = 14 en décimal<br>• E × 16⁰ = 14 × 1 = <span class='highlight'>14₍₁₀₎</span><br><br><span class='highlight'>10₍₁₆₎ :</span><br>• Position 0 : 0 × 16⁰ = 0<br>• Position 1 : 1 × 16¹ = 16<br>• Total : 16 + 0 = <span class='highlight'>16₍₁₀₎</span><br><br><span class='highlight'>Attention :</span> 10₍₁₆₎ ≠ 10₍₁₀₎ !"
+                },
+                {
+                    "category": "pratique",
+                    "front": "Conversion rapide binaire-hex",
+                    "question": "Convertissez 10011111₍₂₎ en hexadécimal.",
+                    "back": "<span class='highlight'>Méthode :</span><br>1. Regrouper par 4 bits : 1001 | 1111<br>2. Convertir chaque groupe :<br>   - 1001₍₂₎ = 9₍₁₆₎<br>   - 1111₍₂₎ = F₍₁₆₎<br><br>Résultat : <span class='highlight'>9F₍₁₆₎</span><br><br><span class='highlight'>Vérification :</span><br>9F₍₁₆₎ = 9×16¹ + 15×16⁰ = 144 + 15 = 159₍₁₀₎<br>10011111₍₂₎ = 128+16+8+4+2+1 = 159₍₁₀₎ ✓"
+                }
+            ]
+        },
         "routage": {
             "categories": [
                 "concepts",
@@ -198,7 +354,7 @@
                     "category": "structures",
                     "front": "Structure elif",
                     "question": "Comment utiliser elif pour les conditions multiples ?",
-                    "back": "        <p><span class='highlight'>elif</span> permet d'ajouter plus de conditions :<br></p><pre style='border: 1px solid #fff;padding: 10px; border-radius: 4px; /* optionnel */  /*! background: #f8f8f8; */ /* optionnel pour améliorer la lisibilité */width: 50%;text-align: center;/*! padding-left: 50%; */margin-left: 25%;'><code style='/*! align-content: end; *//*! border-block: 1px solid black; */text-align: left;'>if condition1:<br>&nbsp;&nbsp;# code 1<br>elif condition2:<br>&nbsp;&nbsp;# code 2<br>else:<br>&nbsp;&nbsp;# code par défaut</code></pre><br>• Évaluation <span class='highlight'>séquentielle</span>➡️ Dès qu'une condition est vraie, les autres ne sont pas testées <span class='highlight'>Plus efficace que plusieurs if séparés</span><p></p>"
+                    "back": "<p><span class='highlight'>elif</span> permet d'ajouter plus de conditions :<br></p><pre style='border: 1px solid #fff;padding: 10px; border-radius: 4px; /* optionnel */  /*! background: #f8f8f8; */ /* optionnel pour améliorer la lisibilité */width: 50%;text-align: center;/*! padding-left: 50%; */margin-left: 25%;'><code style='/*! align-content: end; *//*! border-block: 1px solid black; */text-align: left;'>if condition1:<br>&nbsp;&nbsp;# code 1<br>elif condition2:<br>&nbsp;&nbsp;# code 2<br>else:<br>&nbsp;&nbsp;# code par défaut</code></pre><br>• Évaluation <span class='highlight'>séquentielle</span>➡️ Dès qu'une condition est vraie, les autres ne sont pas testées <span class='highlight'>Plus efficace que plusieurs if séparés</span><p></p>"
                 },
                 {
                     "category": "bases",
@@ -404,7 +560,7 @@
                     "category": "calculs",
                     "front": "Calcul d'adresses",
                     "question": "Comment calculer le nombre d'hôtes possibles avec un masque ?",
-                    "back": "<span class='highlight'>Formule :</span><br>Nombre d'hôtes = 2^n - 2<br><br>• <span class='highlight'>n</span> = nombre de bits à 0 dans le masque<br>• <span class='highlight'>-2</span> car on exclut :<br>  - Adresse réseau (tous les bits hôte à 0)<br>  - Adresse de diffision (tous les bits hôte à 1)<br><br><span class='highlight'>Exemple :</span><br>Masque /24 → 8 bits pour les hôtes<br>2^8 - 2 = 256 - 2 = <span class='highlight'>254 hôtes</span>"
+                    "back": "<span class='highlight'>Formule :</span><br>Nombre d'hôtes = 2<sup>n</sup> - 2<br><br>• <span class='highlight'>n</span> = nombre de bits à 0 dans le masque<br>• <span class='highlight'>-2</span> car on exclut :<br>  - Adresse réseau (tous les bits hôte à 0)<br>  - Adresse de diffision (tous les bits hôte à 1)<br><br><span class='highlight'>Exemple :</span><br>Masque /24 → 8 bits pour les hôtes<br>2<sup>8</sup> - 2 = 256 - 2 = <span class='highlight'>254 hôtes</span>"
                 },
                 {
                     "category": "pratique",
