@@ -298,3 +298,71 @@ body {
 .footer a:hover {
     text-decoration: underline;
 }
+
+.theme-buttons-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne si pas assez de place */
+    gap: 8px; /* Espace entre les boutons */
+    margin-bottom: 20px; /* Espace sous le conteneur de boutons */
+    justify-content: center; /* Centre les boutons s'ils n'occupent pas toute la largeur */
+}
+
+.theme-btn {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    background-color: #f8f9fa;
+    color: #333;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.theme-btn:hover {
+    background-color: #e9ecef;
+}
+
+.theme-btn.active {
+    background-color: #007bff; /* Ou une autre couleur pour indiquer la sélection */
+    color: white;
+    border-color: #007bff;
+}
+
+.info-message { /* Style pour les messages comme "Aucun thème..." */
+    color: #555;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    font-style: italic;
+}
+
+.placeholder-button {
+  display: block;
+  /* width: 100%; */
+  padding: 16px 24px;
+  
+  /* Couleurs et bordure */
+  /* background-color: #f8f9fa; Un gris très clair */
+  background-color: #a5e1ff; 
+  border: 2px dashed #dee2e6; /* Une bordure en pointillés pour montrer que c'est une zone d'attente */
+  color: #495057; /* Couleur du texte, bien lisible */
+
+  /* Les coins arrondis ! */
+  border-radius: 12px;
+
+  /* Texte */
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: 500;
+  
+  /* Autres */
+  cursor: default; /* Le curseur ne change pas au survol, car ce n'est pas un vrai bouton */
+  box-sizing: border-box; /* Assure que le padding n'augmente pas la largeur totale */
+  transition: all 0.2s ease-in-out; /* Petite transition douce pour le survol */
+}
+
+/* petit effet au survol pour le dynamisme */
+.placeholder-button:hover {
+    border-color: #adb5bd;
+    background-color: #f1f3f5;
+}

@@ -49,4 +49,4 @@ Ce projet n’utilise aucune dépendance externe. Tout est en **HTML**, **CSS** 
 
 ## ✨ Contribution
 
-Les contributions sont les bienvenues ! N’hésite pas à ouvrir une issue ou une pull request pour suggérer des améliorations, corriger des bugs ou ajouter de nouvelles fonctionnalités.
+Les contributions sont les bienvenues ! N’hésitez pas à ouvrir une issue ou une pull request pour suggérer des améliorations, corriger des bugs ou ajouter de nouvelles fonctionnalités.

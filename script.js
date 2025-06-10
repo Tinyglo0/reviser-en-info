@@ -1,4 +1,3 @@
-// \\wsl.localhost\Debian\home\tinytux\flashcards\Debian\home\tinytux\flashcards\script.js
 let allData = null;
 let themeConfigurations = null;
 let flashcardSets = null;
@@ -10,7 +9,8 @@ let currentIndex = 0;
 let viewedCards = new Set();
 
 const elements = {
-    themeSelector: document.getElementById('themeSelector'),
+    // themeSelector: document.getElementById('themeSelector'),
+    themeButtonsContainer: document.getElementById('themeButtonsContainer'), 
     mainTitle: document.getElementById('mainTitle'),
     mainSubtitle: document.getElementById('mainSubtitle'),
     instructions: document.getElementById('instructions'),
@@ -22,8 +22,8 @@ const elements = {
     cardBack: document.getElementById('cardBack'),
     progressFill: document.getElementById('progressFill'),
     progressText: document.getElementById('progressText'),
-    yearNavbar: document.getElementById('yearNavbar'), // Ajouté
-    previousCardBtn: document.getElementById('previousCardBtn') // Ajouté pour la nouvelle fonctionnalité
+    yearNavbar: document.getElementById('yearNavbar'),
+    previousCardBtn: document.getElementById('previousCardBtn')
 };
 
 async function fetchAllData() {
@@ -42,28 +42,27 @@ async function fetchAllData() {
         if (!themeConfigurations || !flashcardSets) {
             throw new Error("JSON structure is missing 'themeConfigurations' or 'flashcardSets'");
         }
-        populateYearNavbar(); // <- Appel pour populer la navbar des années
-        populateThemeSelector(); // Populer initialement (sera vide ou avec "choisir une année")
+        populateYearNavbar();
+        populateThemeButtons(); // Appel initial, affichera "choisir une année" ou sera vide
         return allData;
     } catch (error) {
         console.error("Could not fetch or parse data:", error);
         elements.mainTitle.textContent = "Erreur";
         elements.mainSubtitle.textContent = "Impossible de charger les données.";
         hideInterface();
-        elements.themeSelector.innerHTML = '<option value="">-- Erreur de chargement --</option>';
+        if (elements.themeButtonsContainer) {
+            elements.themeButtonsContainer.innerHTML = '<p class="info-message" style="color:red;">Erreur de chargement des thèmes.</p>';
+        }
         elements.yearNavbar.innerHTML = '<p style="color:red;">Erreur chargement années</p>';
         return null;
     }
 }
 
 function getYearDisplayName(yearLevel) {
-    // if (typeof yearLevel === 'number') {
-    //     return `Année ${yearLevel}`;
-    // }
     if (yearLevel === 'troncCommun') {
         return 'Tronc Commun';
     }
-    return yearLevel; // Au cas où
+    return yearLevel;
 }
 
 function populateYearNavbar() {
@@ -76,24 +75,14 @@ function populateYearNavbar() {
         }
     }
 
-    elements.yearNavbar.innerHTML = ''; // Clear existing
+    elements.yearNavbar.innerHTML = '';
 
-    // Bouton "Toutes les années" (ou pas, selon préférence)
-    // const allYearsBtn = document.createElement('button');
-    // allYearsBtn.className = 'year-btn';
-    // allYearsBtn.textContent = 'Toutes';
-    // allYearsBtn.dataset.year = 'all'; // ou null
-    // allYearsBtn.addEventListener('click', handleYearSelection);
-    // elements.yearNavbar.appendChild(allYearsBtn);
-
-    // Trier les années (si numériques)
     const sortedYearLevels = Array.from(yearLevels).sort((a, b) => {
         if (typeof a === 'number' && typeof b === 'number') return a - b;
-        if (a === 'troncCommun') return -1; // Placer "Tronc Commun" en premier
+        if (a === 'troncCommun') return -1;
         if (b === 'troncCommun') return 1;
         return String(a).localeCompare(String(b));
     });
-
 
     sortedYearLevels.forEach(year => {
         const yearBtn = document.createElement('button');
@@ -109,47 +98,64 @@ function handleYearSelection(event) {
     const selectedYear = event.target.dataset.year;
     currentSelectedYear = selectedYear;
 
-    // Maj style boutons année
     elements.yearNavbar.querySelectorAll('.year-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
 
-    elements.themeSelector.disabled = false; // Activer le sélecteur de thème
-    populateThemeSelector(currentSelectedYear);
+    populateThemeButtons(currentSelectedYear); // Changé de populateThemeSelector
 
-    // Réinitialiser l'interface pour les cartes, mais garder le contexte de l'année
-    loadTheme(null); // Appelle hideInterface et ajuste les messages
-    elements.mainTitle.textContent = "🎓 Flash Cards pour réviser l'info"; // Garder le titre principal
-    // Le message de mainSubtitle et cardFront sera géré par loadTheme(null) -> hideInterface()
-    // elements.mainSubtitle.textContent = `Choisissez un thème pour le niveau ${getYearDisplayName(currentSelectedYear)}`;
-    // elements.cardFront.innerHTML = `<h2>Prêt ?</h2><p>Choisissez un thème pour le niveau suivant : ${getYearDisplayName(currentSelectedYear)}.</p>`;
-    elements.themeSelector.value = "";
+    loadTheme(null); // Réinitialise le thème et l'interface des cartes
+    elements.mainTitle.textContent = "🎓 Flash Cards pour réviser l'info";
+    // Le sous-titre et cardFront sont gérés par loadTheme(null) -> hideInterface()
 }
 
-function populateThemeSelector(selectedYear = null) {
-    if (!themeConfigurations) {
-         elements.themeSelector.innerHTML = '<option value="">-- Données non chargées --</option>';
+function populateThemeButtons(selectedYear = null) {
+    if (!elements.themeButtonsContainer) {
+        console.error("Theme buttons container not found!");
         return;
     }
 
-    elements.themeSelector.innerHTML = `<option value="">-- Choisir un thème ${selectedYear ? `(${getYearDisplayName(selectedYear)})` : ''} --</option>`;
+    elements.themeButtonsContainer.innerHTML = ''; // Vider les boutons précédents ou messages
+
+    // 1. On vérifie d'abord si une année a été sélectionnée.
+    if (!selectedYear) {
+        elements.themeButtonsContainer.innerHTML = `<div class="placeholder-button">⬆️ Choisissez d'abord une année ⬆️</div>`;
+        return;
+    }
+
+    if (!themeConfigurations) {
+        elements.themeButtonsContainer.innerHTML = '<p class="info-message">-- Données non chargées --</p>';
+        return;
+    }
+
+    const fragment = document.createDocumentFragment();
 
     for (const themeKey in themeConfigurations) {
         if (themeConfigurations.hasOwnProperty(themeKey)) {
             const theme = themeConfigurations[themeKey];
-            // Affiche le thème s'il n'y a pas d'année sélectionnée OU si l'année correspond ET que le thème n'est pas caché
-            if (!selectedYear || (String(theme.yearLevel) === String(selectedYear) && !theme.hidden)) {
-                const option = document.createElement('option');
-                option.value = themeKey;
-                // Utilise le titre du thème depuis themeConfigurations pour le nom de l'option
-                option.textContent = `${theme.icon || ''} ${theme.title.replace(/^\p{Extended_Pictographic}*\s*(Flash Cards)?\s*/u, '') || themeKey}`;
-                elements.themeSelector.appendChild(option);
+            
+            // 2. La condition vérifie seulement si le thème correspond à l'année sélectionnée.
+            if (String(theme.yearLevel) === String(selectedYear) && !theme.hidden) {
+                const button = document.createElement('button');
+                button.className = 'theme-btn';
+                button.dataset.themeKey = themeKey;
+                button.textContent = `${theme.icon || ''} ${theme.title.replace(/^\p{Extended_Pictographic}*\s*(Flash Cards)?\s*/u, '') || themeKey}`;
+                
+                button.addEventListener('click', function() {
+                    elements.themeButtonsContainer.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    loadTheme(themeKey);
+                });
+                fragment.appendChild(button);
             }
         }
     }
-     if (elements.themeSelector.options.length <= 1 && selectedYear) {
-        elements.themeSelector.innerHTML = `<option value="">-- Aucun thème pour ${getYearDisplayName(selectedYear)} --</option>`;
-    } else if (elements.themeSelector.options.length <=1 && !selectedYear) {
-         elements.themeSelector.innerHTML = `<option value="">-- D'abord choisir une année --</option>`;
+
+    // On affiche les boutons ou un message s'il n'y a aucun thème pour l'année sélectionnée.
+    if (fragment.childNodes.length > 0) {
+        elements.themeButtonsContainer.appendChild(fragment);
+    } else {
+        // Ce message ne s'affichera que si une année est choisie mais qu'elle est vide.
+        elements.themeButtonsContainer.innerHTML = `<p class="info-message">-- Aucun thème pour ${getYearDisplayName(selectedYear)} --</p>`;
     }
 }
 
@@ -172,11 +178,10 @@ function applyTheme(themeName) {
 function createCategoryFilters(themeData) {
     elements.categoryFilter.innerHTML = '';
     if (!themeData || !themeData.categories || themeData.categories.length === 0) {
-        elements.categoryFilter.style.display = 'none'; // Cacher si pas de catégories
+        elements.categoryFilter.style.display = 'none';
         return;
     }
-    elements.categoryFilter.style.display = 'flex'; // Afficher si catégories existent
-
+    elements.categoryFilter.style.display = 'flex';
 
     const allBtn = document.createElement('button');
     allBtn.className = 'filter-btn active';
@@ -204,28 +209,31 @@ function createCategoryFilters(themeData) {
 }
 
 async function loadTheme(themeName) {
-    if (!themeName) { // Si on déselectionne un thème ou une année
-        hideInterface(); // S'occupe de réinitialiser les messages
+    if (!themeName) { 
+        hideInterface(); 
         currentTheme = null;
-         if(currentSelectedYear){ // Si une année est sélectionnée, adapter le message du sous-titre
-            elements.mainSubtitle.textContent = `Choisissez un thème pour le niveau suivant : ${getYearDisplayName(currentSelectedYear)}`;
-            elements.cardFront.innerHTML = `<h2>Prêt ?</h2><p>Sélectionnez un thème ci-dessus.</p>`; // Message spécifique si année sélectionnée mais pas de thème
-         } else { // Si aucune année n'est sélectionnée (état initial ou après déselection d'année)
-            // hideInterface() aura déjà mis les messages par défaut
-            // elements.mainSubtitle.textContent = "Sélectionnez une année puis un thème";
-            // elements.cardFront.innerHTML = `<h2>Bienvenue !</h2><p>Sélectionnez une année puis un thème pour commencer.</p>`;
-         }
+        // Désélectionner visuellement le bouton de thème actif s'il y en a un
+        if (elements.themeButtonsContainer) {
+            elements.themeButtonsContainer.querySelectorAll('.theme-btn.active').forEach(btn => btn.classList.remove('active'));
+        }
+
+        if(currentSelectedYear){ 
+            elements.mainSubtitle.textContent = `Choisissez un thème pour le niveau : ${getYearDisplayName(currentSelectedYear)}`;
+            elements.cardFront.innerHTML = `<h2>Prêt ?</h2><p>Sélectionnez un thème ci-dessus.</p>`;
+        } else { 
+            // Les messages sont déjà gérés par hideInterface()
+        }
         return;
     }
 
-    await fetchAllData(); // S'assurer que les données sont chargées
+    await fetchAllData(); 
 
     if (!flashcardSets || !flashcardSets[themeName] || !themeConfigurations || !themeConfigurations[themeName]) {
-         console.error(`Data or configuration for theme "${themeName}" not found.`);
-         hideInterface();
-         elements.cardFront.innerHTML = `<h2>Thème non trouvé</h2><p>Les données pour "${themeName}" n'ont pas pu être chargées.</p>`;
-         elements.cardBack.innerHTML = `<h2>Erreur</h2>`;
-         currentTheme = null;
+        console.error(`Data or configuration for theme "${themeName}" not found.`);
+        hideInterface();
+        elements.cardFront.innerHTML = `<h2>Thème non trouvé</h2><p>Les données pour "${themeName}" n'ont pas pu être chargées.</p>`;
+        elements.cardBack.innerHTML = `<h2>Erreur</h2>`;
+        currentTheme = null;
         return;
     }
 
@@ -243,9 +251,9 @@ async function loadTheme(themeName) {
     if (currentCards.length > 0) {
         showCard(currentIndex);
     } else {
-         elements.cardFront.innerHTML = '<h2>Aucune carte</h2><p>Ce thème ne contient aucune carte pour le moment.</p>';
-         elements.cardBack.innerHTML = '<h2>Vide</h2>';
-         if (elements.categoryFilter) elements.categoryFilter.style.display = 'none';
+        elements.cardFront.innerHTML = '<h2>Aucune carte</h2><p>Ce thème ne contient aucune carte pour le moment.</p>';
+        elements.cardBack.innerHTML = '<h2>Vide</h2>';
+        if (elements.categoryFilter) elements.categoryFilter.style.display = 'none';
     }
     updateProgress();
 }
@@ -254,7 +262,6 @@ function showInterface() {
     elements.instructions.style.display = 'none';
     elements.progressSection.style.display = 'flex';
     elements.controlButtons.style.display = 'flex';
-    // La visibilité de categoryFilter est gérée par createCategoryFilters et loadTheme
 }
 
 function hideInterface() {
@@ -263,16 +270,15 @@ function hideInterface() {
     elements.progressSection.style.display = 'none';
     elements.controlButtons.style.display = 'none';
 
-    if (!currentSelectedYear && !currentTheme) { // État initial ou tout déselectionné
+    if (!currentSelectedYear && !currentTheme) { 
         elements.mainTitle.textContent = "🎓 Flash Cards pour réviser l'info";
         elements.mainSubtitle.textContent = "Sélectionnez une année puis un thème";
         elements.cardFront.innerHTML = `<h2>Bienvenue !</h2><p>Sélectionnez une année puis un thème pour commencer.</p>`;
-    } else if (currentSelectedYear && !currentTheme) { // Année sélectionnée, mais pas de thème
-         elements.mainTitle.textContent = "🎓 Flash Cards pour réviser l'info";
-         elements.mainSubtitle.textContent = `Choisissez un thème pour le niveau ${getYearDisplayName(currentSelectedYear)}`;
-         elements.cardFront.innerHTML = `<h2>Prêt ?</h2><p>Sélectionnez un thème ci-dessus.</p>`;
+    } else if (currentSelectedYear && !currentTheme) { 
+        elements.mainTitle.textContent = "🎓 Flash Cards pour réviser l'info";
+        elements.mainSubtitle.textContent = `Choisissez un thème pour le niveau ${getYearDisplayName(currentSelectedYear)}`;
+        elements.cardFront.innerHTML = `<h2>Prêt ?</h2><p>Sélectionnez un thème ci-dessus.</p>`;
     }
-    // Le contenu de cardBack est constant pour l'état "caché" ou "accueil"
     elements.cardBack.innerHTML = `<h2>C'est parti !</h2><p>Bonne révisions ! 📚</p>`;
     elements.card.classList.remove('flipped');
 }
@@ -309,13 +315,11 @@ function showCard(index) {
         <h2>Réponse</h2>
         <p>${flashcard.back}</p>
     `;
-
     elements.card.classList.remove('flipped');
 }
 
 function nextCard() {
     if (currentCards.length === 0) return;
-
     viewedCards.add(currentIndex);
     currentIndex = (currentIndex + 1) % currentCards.length;
     showCard(currentIndex);
@@ -325,10 +329,9 @@ function nextCard() {
 
 function previousCard() {
     if (currentCards.length === 0) return;
-
     currentIndex--;
     if (currentIndex < 0) {
-        currentIndex = currentCards.length - 1; // Boucle vers la dernière carte
+        currentIndex = currentCards.length - 1;
     }
     showCard(currentIndex);
     updateProgress();
@@ -338,9 +341,8 @@ function previousCard() {
 
 function flipCard() {
     if (!currentTheme || currentCards.length === 0) {
-        // Si on est sur l'écran d'accueil, on veut quand même pouvoir flipper la carte de bienvenue
         if (elements.cardFront.innerHTML.includes("Bienvenue !") || elements.cardFront.innerHTML.includes("Prêt ?")) {
-             elements.card.classList.toggle('flipped');
+            elements.card.classList.toggle('flipped');
         }
         return;
     }
@@ -365,36 +367,34 @@ async function filterCards(category) {
         console.warn("Cannot filter: current theme or flashcard sets not loaded.");
         return;
     }
-
     const themeCardsData = flashcardSets[currentTheme];
     if (!themeCardsData || !themeCardsData.cards) {
         console.warn(`Card data for theme "${currentTheme}" not found.`);
         currentCards = [];
     } else {
-         if (category === 'all') {
+        if (category === 'all') {
             currentCards = [...themeCardsData.cards];
         } else {
             currentCards = themeCardsData.cards.filter(card => card.category === category);
         }
     }
-
     currentIndex = 0;
     viewedCards.clear();
-
     if (currentCards.length > 0) {
         showCard(currentIndex);
     } else {
         elements.cardFront.innerHTML = '<h2>Aucune carte</h2><p>Aucune carte trouvée pour cette catégorie.</p>';
         elements.cardBack.innerHTML = '<p>Sélectionnez une autre catégorie ou "Toutes".</p>';
     }
-
     updateProgress();
     elements.card.classList.remove('flipped');
 }
 
-elements.themeSelector.addEventListener('change', (e) => {
-    loadTheme(e.target.value);
-});
+// Supprimer l'ancien event listener pour le select
+// elements.themeSelector.addEventListener('change', (e) => {
+//  loadTheme(e.target.value);
+// });
+// Les clics sur les boutons de thème sont gérés directement dans populateThemeButtons
 
 if (elements.previousCardBtn) {
     elements.previousCardBtn.addEventListener('click', previousCard);
@@ -406,19 +406,18 @@ document.getElementById('shuffleCards').addEventListener('click', shuffleCards);
 elements.card.addEventListener('click', flipCard);
 
 document.addEventListener('keydown', (e) => {
-    // Permettre le flip de la carte d'accueil avec Espace
     if (e.key === ' ' && (!currentTheme || currentCards.length === 0)) {
         if (elements.cardFront.innerHTML.includes("Bienvenue !") || elements.cardFront.innerHTML.includes("Prêt ?")) {
             e.preventDefault();
             flipCard();
-            return; // Sortir pour ne pas exécuter d'autres logiques de touches si pas de thème chargé
+            return; 
         }
     }
 
-    if (!currentTheme || currentCards.length === 0) return; // Pour les autres touches, un thème doit être chargé
+    if (!currentTheme || currentCards.length === 0) return; 
 
     switch(e.key) {
-        case ' ': // Déjà géré au-dessus si pas de thème, ici pour quand un thème est chargé
+        case ' ': 
             e.preventDefault();
             flipCard();
             break;
@@ -440,18 +439,11 @@ document.addEventListener('keydown', (e) => {
 });
 
 async function initializeApp() {
-    await fetchAllData();
+    await fetchAllData(); // fetchAllData appelle maintenant populateThemeButtons
     if (!currentSelectedYear) { 
-        hideInterface(); // Assure que l'interface de carte est cachée et les messages initiaux sont corrects
-        // Les lignes suivantes sont maintenant redondantes ou incorrectes car hideInterface() s'en charge.
-        // elements.mainSubtitle.textContent = "Sélectionnez une année pour commencer"; // Redondant/Incorrect
-        // elements.cardFront.innerHTML = `<h2>Bienvenue !</h2><p>Sélectionnez une année pour commencer vos révisions.</p>`; // Incorrect
-        elements.themeSelector.innerHTML = '<option value="">⬆️ Choisissez d\'abord une année ⬆️</option>';
-        elements.themeSelector.disabled = true;
-    }
-    // S'assurer que la carte d'accueil est retournable
-    if (!currentTheme && elements.card) {
-        // L'event listener est déjà sur elements.card, flipCard gère la condition
+        hideInterface();
+        // Le message initial dans themeButtonsContainer est géré par populateThemeButtons
+        // elements.themeButtonsContainer.innerHTML = '<p class="info-message">⬆️ Choisissez d\'abord une année ⬆️</p>'; // Déjà géré
     }
 }
 

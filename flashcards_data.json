@@ -6,9 +6,9 @@
             "icon": "0️⃣/1️⃣",
             "yearLevel": "1M",
             "colors": {
-    "bg": "linear-gradient(135deg, #0d47a1, #1565c0)",
-    "cardFront": "linear-gradient(135deg, #1976d2, #2196f3)",
-    "cardBack": "linear-gradient(135deg, #00bcd4, #4dd0e1)"
+                "bg": "linear-gradient(135deg, #0d47a1, #1565c0)",
+                "cardFront": "linear-gradient(135deg, #1976d2, #2196f3)",
+                "cardBack": "linear-gradient(135deg, #00bcd4, #4dd0e1)"
             }
         },
         "hexadecimal": {
@@ -20,6 +20,17 @@
                 "bg": "linear-gradient(135deg, #2c3e50, #34495e)",
                 "cardFront": "linear-gradient(135deg, #8e44ad, #9b59b6)",
                 "cardBack": "linear-gradient(135deg, #e74c3c, #f39c12)"
+            }
+        },
+        "listes": {
+            "title": "Flash Cards Listes Python",
+            "subtitle": "Maîtrisez les listes en Python",
+            "icon": "📝",
+            "yearLevel": "2M",
+            "colors": {
+                "bg": "linear-gradient(135deg, #4CAF50, #C7C681)",
+                "cardFront": "linear-gradient(135deg, #2E7D32, #4CAF50)",
+                "cardBack": "linear-gradient(135deg, #66BB6A, #A5D6A7)"
             }
         },
         "tcp_ip": {
@@ -80,6 +91,76 @@
         }
     },
     "flashcardSets": {
+        "listes": {
+            "categories": [
+                "concepts",
+                "manipulation",
+                "parcours",
+                "exercices"
+            ],
+            "categoryNames": {
+                "concepts": "Concepts de base",
+                "manipulation": "Manipulation des listes",
+                "parcours": "Parcourir une liste",
+                "exercices": "Exercices pratiques"
+            },
+            "cards": [
+                {
+                    "category": "concepts",
+                    "front": "Définition d'une liste",
+                    "question": "Qu'est-ce qu'une liste en Python et comment est-elle structurée ?",
+                    "back": "Une <span class='highlight'>liste</span> (ou tableau) permet de stocker un ensemble de valeurs de manière structurée.  C'est une variable délimitée par des <span class='highlight'>crochets []</span>, et ses éléments sont séparés par des <span class='highlight'>virgules</span>. <br><br>Exemple : matieres = [\"maths\", \"francais\", \"informatique\"] "
+                },
+                {
+                    "category": "concepts",
+                    "front": "Notion d'indice",
+                    "question": "Qu'est-ce qu'un indice dans une liste et comment est-il lié à la position d'un élément ?",
+                    "back": "L'<span class='highlight'>indice</span> (index en anglais) est le numéro qui identifie un élément dans une liste.  <br><br>• En Python, l'indice du premier élément est <span class='highlight'>0</span>. <br>• L'indice d'un élément est égal à sa <span class='highlight'>position moins 1</span>. <br><br>Exemple: Dans matieres, l'élément 'informatique' est à la position 3 mais à l'<span class='highlight'>indice 2</span>. "
+                },
+                {
+                    "category": "manipulation",
+                    "front": "Obtenir la longueur",
+                    "question": "Comment peut-on obtenir le nombre d'éléments dans une liste ?",
+                    "back": "On utilise la fonction <span class='highlight'>len()</span> pour connaître la longueur d'une liste (le nombre d'éléments). <br><br>Exemple :<br>fruits = [\"pomme\", \"fraise\", \"cerise\"]<br>print(len(fruits)) affichera <span class='highlight'>3</span>."
+                },
+                {
+                    "category": "manipulation",
+                    "front": "Accéder à un élément",
+                    "question": "Comment accéder à un élément spécifique d'une liste ?",
+                    "back": "On accède à un élément en utilisant son <span class='highlight'>indice</span> entre crochets.<br><br>Syntaxe : nom_liste[i] <br><br>• Le premier élément a l'indice <span class='highlight'>0</span>. <br>• Le dernier élément a l'indice <span class='highlight'>len(liste) - 1</span>. <br><br>⚠️ Accéder à un indice qui n'existe pas provoque une erreur <span class='highlight'>IndexError: list index out of range</span>. "
+                },
+                {
+                    "category": "parcours",
+                    "front": "Parcours par indice",
+                    "question": "Comment parcourir une liste en utilisant les indices et quels sont les avantages ?",
+                    "back": "On parcourt une liste par indice avec une boucle for et la fonction range(len(liste)). <br><br>Exemple:<br>famille = [\"Bart\", \"Lisa\"]<br>for i in range(len(famille)):<br>  print(famille[i]) <br><br><span class='highlight'>Avantages :</span><br>• Permet de <span class='highlight'>modifier</span> les éléments de la liste. <br>• Offre un <span class='highlight'>contrôle total</span> (arrêt, accès à l'élément suivant/précédent)."
+                },
+                {
+                    "category": "parcours",
+                    "front": "Parcours par élément",
+                    "question": "Comment parcourir une liste par élément et quels sont les inconvénients ?",
+                    "back": "On parcourt une liste par élément avec une boucle for simplifiée.<br><br>Exemple:<br>famille = [\"Bart\", \"Lisa\"]<br>for membre in famille:<br>  print(membre)<br><br><span class='highlight'>Inconvénients :</span><br>• Accès en <span class='highlight'>lecture seule</span>, on ne peut pas modifier les éléments. <br>• Impossible d'accéder à l'élément précédent ou suivant. "
+                },
+                {
+                    "category": "exercices",
+                    "front": "Exercice d'accès",
+                    "question": "On considère la liste L = [1, 5, 8, 2, 3]. Que renvoie l'instruction L[2] ?",
+                    "back": "L'instruction L[2] renvoie l'élément à l'<span class='highlight'>indice 2</span>.<br><br>• L[0] = 1<br>• L[1] = 5<br>• L[2] = <span class='highlight'>8</span><br><br>La bonne réponse est 8. "
+                },
+                {
+                    "category": "exercices",
+                    "front": "Exercice de modification",
+                    "question": "On considère la liste notes = [1, 2, 5, 8, 6]. Quel est le contenu de la liste après l'instruction notes[3] = 6 ?",
+                    "back": "L'instruction notes[3] = 6 remplace la valeur à l'<span class='highlight'>indice 3</span> par la valeur 6.<br><br>Liste initiale : [1, 2, 5, 8, 6] <br>La valeur à l'indice 3 est 8.<br><br>Liste après modification : [1, 2, 5, 6, 6]"
+                },
+                {
+                    "category": "exercices",
+                    "front": "Code à compléter",
+                    "question": "Complétez le code pour afficher un à un les éléments de la liste temperatures = [3, 1, 4, 1, 5, 9].<br><br>for ... in range(...):<br>  print(...)",
+                    "back": "Pour parcourir la liste par indice, on utilise len() et la variable de la boucle.<br><br><code>for <span class='highlight'>i</span> in range(<span class='highlight'>len(temperatures)</span>):<br>  print(<span class='highlight'>temperatures[i]</span>)</code>"
+                }
+            ]
+        },
         "binaire": {
             "categories": [
                 "concepts",
